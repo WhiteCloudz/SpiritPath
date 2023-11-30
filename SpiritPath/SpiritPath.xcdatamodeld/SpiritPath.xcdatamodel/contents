@@ -1,4 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22222" systemVersion="23B81" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Bookmarks" representedClassName="Bookmarks" syncable="YES" codeGenerationType="class">
+        <attribute name="bookDescription" optional="YES" attributeType="String"/>
+        <attribute name="bookName" optional="YES" attributeType="String"/>
+        <attribute name="bookPage" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="DataOfLibrary" representedClassName="DataOfLibrary" syncable="YES" codeGenerationType="class">
+        <attribute name="bookImage" optional="YES" attributeType="String"/>
+        <attribute name="bookName" optional="YES" attributeType="String"/>
+        <attribute name="pdfURL" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="DataOfWeek" representedClassName="DataOfWeek" syncable="YES" codeGenerationType="class">
+        <attribute name="dayOfWeek" optional="YES" attributeType="String"/>
+        <attribute name="otherTotalValue" optional="YES" attributeType="String"/>
+        <attribute name="totalValue" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="RoutineData" representedClassName="RoutineData" syncable="YES" codeGenerationType="class">
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="goal" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="today" optional="YES" attributeType="String"/>
+        <attribute name="total" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="SwitchData" representedClassName="SwitchData" syncable="YES" codeGenerationType="class">
+        <attribute name="switchValue" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
 </model>

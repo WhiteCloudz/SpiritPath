@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSDocumentsFolderUsageDescription</key>
+	<string>The application requires this permission to read files.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -21,5 +23,9 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSOpenInFilesAndDirectoriesUsageDescription</key>
+	<string>We need access to your open files for PDF selection. The SpiritPath app does not have any network connection.</string>
+	<key>NSFileProviderService</key>
+	<string>We need access to the file system to save your documents and provide offline access to your files. The SpiritPath app does not have any network connection.</string>
 </dict>
 </plist>

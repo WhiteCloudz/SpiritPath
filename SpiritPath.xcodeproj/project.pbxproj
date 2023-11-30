@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1BF831762B18521900814066 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF831752B18521900814066 /* AppDelegate.swift */; };
 		1BF831782B18521900814066 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF831772B18521900814066 /* SceneDelegate.swift */; };
-		1BF8317A2B18521900814066 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF831792B18521900814066 /* ViewController.swift */; };
 		1BF8317D2B18521900814066 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BF8317B2B18521900814066 /* Main.storyboard */; };
 		1BF831802B18521900814066 /* SpiritPath.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1BF8317E2B18521900814066 /* SpiritPath.xcdatamodeld */; };
 		1BF831822B18521B00814066 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BF831812B18521B00814066 /* Assets.xcassets */; };
@@ -17,6 +16,49 @@
 		1BF831902B18521B00814066 /* SpiritPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF8318F2B18521B00814066 /* SpiritPathTests.swift */; };
 		1BF8319A2B18521B00814066 /* SpiritPathUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF831992B18521B00814066 /* SpiritPathUITests.swift */; };
 		1BF8319C2B18521B00814066 /* SpiritPathUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF8319B2B18521B00814066 /* SpiritPathUITestsLaunchTests.swift */; };
+		1BF831A92B18564B00814066 /* ResetAndDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF831A82B18564B00814066 /* ResetAndDelete.swift */; };
+		1BF831AD2B18568A00814066 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF831AC2B18568A00814066 /* Utilities.swift */; };
+		1BF831B22B18583700814066 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF831B12B18583700814066 /* HomePage.swift */; };
+		1BF831B62B1858CC00814066 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF831B52B1858CC00814066 /* ChartView.swift */; };
+		1BF831B82B1858FB00814066 /* WeeklyZikirChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF831B72B1858FB00814066 /* WeeklyZikirChartView.swift */; };
+		1BF831BC2B18595D00814066 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF831BB2B18595D00814066 /* Settings.swift */; };
+		1BF831BE2B1859F500814066 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF831BD2B1859F500814066 /* Report.swift */; };
+		1BF831C12B185A3400814066 /* DailyZikirsChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF831BF2B185A3400814066 /* DailyZikirsChartTableViewCell.swift */; };
+		1BF831C22B185A3400814066 /* DailyZikirsChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BF831C02B185A3400814066 /* DailyZikirsChartTableViewCell.xib */; };
+		1BF831C52B185A4900814066 /* WeeklyChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF831C32B185A4900814066 /* WeeklyChartTableViewCell.swift */; };
+		1BF831C62B185A4900814066 /* WeeklyChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BF831C42B185A4900814066 /* WeeklyChartTableViewCell.xib */; };
+		1BF831C92B185A5D00814066 /* DailyPrayerChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF831C72B185A5D00814066 /* DailyPrayerChartTableViewCell.swift */; };
+		1BF831CA2B185A5D00814066 /* DailyPrayerChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BF831C82B185A5D00814066 /* DailyPrayerChartTableViewCell.xib */; };
+		1BF831CD2B185A6F00814066 /* DailyReadingChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF831CB2B185A6F00814066 /* DailyReadingChartTableViewCell.swift */; };
+		1BF831CE2B185A6F00814066 /* DailyReadingChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BF831CC2B185A6F00814066 /* DailyReadingChartTableViewCell.xib */; };
+		1BF831D12B185A8400814066 /* BuildYourRoutineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF831CF2B185A8400814066 /* BuildYourRoutineTableViewCell.swift */; };
+		1BF831D22B185A8400814066 /* BuildYourRoutineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BF831D02B185A8400814066 /* BuildYourRoutineTableViewCell.xib */; };
+		1BF831D52B185A9C00814066 /* randomAsmaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF831D32B185A9C00814066 /* randomAsmaTableViewCell.swift */; };
+		1BF831D62B185A9C00814066 /* randomAsmaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BF831D42B185A9C00814066 /* randomAsmaTableViewCell.xib */; };
+		1BF831DA2B185F0700814066 /* RoutineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF831D82B185F0700814066 /* RoutineTableViewCell.swift */; };
+		1BF831DB2B185F0700814066 /* RoutineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BF831D92B185F0700814066 /* RoutineTableViewCell.xib */; };
+		1BF831DD2B185F9900814066 /* Popover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF831DC2B185F9900814066 /* Popover.swift */; };
+		1BF831DF2B185FCB00814066 /* RoutinePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF831DE2B185FCB00814066 /* RoutinePage.swift */; };
+		1BF831E12B185FE800814066 /* Routine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF831E02B185FE800814066 /* Routine.swift */; };
+		1BF831E82B18611E00814066 /* BookStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF831E72B18611E00814066 /* BookStore.swift */; };
+		1BF831EA2B18613F00814066 /* ReadBookPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF831E92B18613F00814066 /* ReadBookPage.swift */; };
+		1BF831EC2B18618400814066 /* AddNewBooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF831EB2B18618400814066 /* AddNewBooks.swift */; };
+		1BF831EE2B1861C900814066 /* BookStorePopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF831ED2B1861C900814066 /* BookStorePopover.swift */; };
+		1BF831F02B1861E000814066 /* ReedBookPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF831EF2B1861E000814066 /* ReedBookPopover.swift */; };
+		1BF831F32B18620F00814066 /* BookMarksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF831F12B18620F00814066 /* BookMarksTableViewCell.swift */; };
+		1BF831F42B18620F00814066 /* BookMarksTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BF831F22B18620F00814066 /* BookMarksTableViewCell.xib */; };
+		1BF831F72B18632A00814066 /* LibraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF831F52B18632A00814066 /* LibraryTableViewCell.swift */; };
+		1BF831F82B18632A00814066 /* LibraryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BF831F62B18632A00814066 /* LibraryTableViewCell.xib */; };
+		1BF831FA2B18648200814066 /* LibraryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF831F92B18648200814066 /* LibraryData.swift */; };
+		1BF831FC2B18649A00814066 /* PopoverData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF831FB2B18649A00814066 /* PopoverData.swift */; };
+		1BF832042B1865CF00814066 /* ZikirPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF832032B1865CF00814066 /* ZikirPopover.swift */; };
+		1BF832062B1865F900814066 /* ZikirData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF832052B1865F900814066 /* ZikirData.swift */; };
+		1BF832082B18662800814066 /* ZikirStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF832072B18662800814066 /* ZikirStore.swift */; };
+		1BF8320A2B18665F00814066 /* ZikirCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF832092B18665F00814066 /* ZikirCounter.swift */; };
+		1BF8320C2B1866CE00814066 /* ZikirStorSetupTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF8320B2B1866CE00814066 /* ZikirStorSetupTableView.swift */; };
+		1BF8320F2B18670000814066 /* ZikirViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF8320D2B18670000814066 /* ZikirViewCell.swift */; };
+		1BF832102B18670000814066 /* ZikirViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BF8320E2B18670000814066 /* ZikirViewCell.xib */; };
+		1BF832122B1867E000814066 /* Books in Resources */ = {isa = PBXBuildFile; fileRef = 1BF832112B1867E000814066 /* Books */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +82,6 @@
 		1BF831722B18521900814066 /* SpiritPath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpiritPath.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BF831752B18521900814066 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BF831772B18521900814066 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1BF831792B18521900814066 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1BF8317C2B18521900814066 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1BF8317F2B18521900814066 /* SpiritPath.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SpiritPath.xcdatamodel; sourceTree = "<group>"; };
 		1BF831812B18521B00814066 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +92,49 @@
 		1BF831952B18521B00814066 /* SpiritPathUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpiritPathUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BF831992B18521B00814066 /* SpiritPathUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpiritPathUITests.swift; sourceTree = "<group>"; };
 		1BF8319B2B18521B00814066 /* SpiritPathUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpiritPathUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1BF831A82B18564B00814066 /* ResetAndDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetAndDelete.swift; sourceTree = "<group>"; };
+		1BF831AC2B18568A00814066 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		1BF831B12B18583700814066 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
+		1BF831B52B1858CC00814066 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		1BF831B72B1858FB00814066 /* WeeklyZikirChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyZikirChartView.swift; sourceTree = "<group>"; };
+		1BF831BB2B18595D00814066 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		1BF831BD2B1859F500814066 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
+		1BF831BF2B185A3400814066 /* DailyZikirsChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyZikirsChartTableViewCell.swift; sourceTree = "<group>"; };
+		1BF831C02B185A3400814066 /* DailyZikirsChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyZikirsChartTableViewCell.xib; sourceTree = "<group>"; };
+		1BF831C32B185A4900814066 /* WeeklyChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyChartTableViewCell.swift; sourceTree = "<group>"; };
+		1BF831C42B185A4900814066 /* WeeklyChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeeklyChartTableViewCell.xib; sourceTree = "<group>"; };
+		1BF831C72B185A5D00814066 /* DailyPrayerChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyPrayerChartTableViewCell.swift; sourceTree = "<group>"; };
+		1BF831C82B185A5D00814066 /* DailyPrayerChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyPrayerChartTableViewCell.xib; sourceTree = "<group>"; };
+		1BF831CB2B185A6F00814066 /* DailyReadingChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReadingChartTableViewCell.swift; sourceTree = "<group>"; };
+		1BF831CC2B185A6F00814066 /* DailyReadingChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyReadingChartTableViewCell.xib; sourceTree = "<group>"; };
+		1BF831CF2B185A8400814066 /* BuildYourRoutineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildYourRoutineTableViewCell.swift; sourceTree = "<group>"; };
+		1BF831D02B185A8400814066 /* BuildYourRoutineTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuildYourRoutineTableViewCell.xib; sourceTree = "<group>"; };
+		1BF831D32B185A9C00814066 /* randomAsmaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = randomAsmaTableViewCell.swift; sourceTree = "<group>"; };
+		1BF831D42B185A9C00814066 /* randomAsmaTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = randomAsmaTableViewCell.xib; sourceTree = "<group>"; };
+		1BF831D82B185F0700814066 /* RoutineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineTableViewCell.swift; sourceTree = "<group>"; };
+		1BF831D92B185F0700814066 /* RoutineTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoutineTableViewCell.xib; sourceTree = "<group>"; };
+		1BF831DC2B185F9900814066 /* Popover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popover.swift; sourceTree = "<group>"; };
+		1BF831DE2B185FCB00814066 /* RoutinePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutinePage.swift; sourceTree = "<group>"; };
+		1BF831E02B185FE800814066 /* Routine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routine.swift; sourceTree = "<group>"; };
+		1BF831E72B18611E00814066 /* BookStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStore.swift; sourceTree = "<group>"; };
+		1BF831E92B18613F00814066 /* ReadBookPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadBookPage.swift; sourceTree = "<group>"; };
+		1BF831EB2B18618400814066 /* AddNewBooks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewBooks.swift; sourceTree = "<group>"; };
+		1BF831ED2B1861C900814066 /* BookStorePopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStorePopover.swift; sourceTree = "<group>"; };
+		1BF831EF2B1861E000814066 /* ReedBookPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReedBookPopover.swift; sourceTree = "<group>"; };
+		1BF831F12B18620F00814066 /* BookMarksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarksTableViewCell.swift; sourceTree = "<group>"; };
+		1BF831F22B18620F00814066 /* BookMarksTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookMarksTableViewCell.xib; sourceTree = "<group>"; };
+		1BF831F52B18632A00814066 /* LibraryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTableViewCell.swift; sourceTree = "<group>"; };
+		1BF831F62B18632A00814066 /* LibraryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LibraryTableViewCell.xib; sourceTree = "<group>"; };
+		1BF831F92B18648200814066 /* LibraryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryData.swift; sourceTree = "<group>"; };
+		1BF831FB2B18649A00814066 /* PopoverData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverData.swift; sourceTree = "<group>"; };
+		1BF832032B1865CF00814066 /* ZikirPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZikirPopover.swift; sourceTree = "<group>"; };
+		1BF832052B1865F900814066 /* ZikirData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZikirData.swift; sourceTree = "<group>"; };
+		1BF832072B18662800814066 /* ZikirStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZikirStore.swift; sourceTree = "<group>"; };
+		1BF832092B18665F00814066 /* ZikirCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZikirCounter.swift; sourceTree = "<group>"; };
+		1BF8320B2B1866CE00814066 /* ZikirStorSetupTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZikirStorSetupTableView.swift; sourceTree = "<group>"; };
+		1BF8320D2B18670000814066 /* ZikirViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZikirViewCell.swift; sourceTree = "<group>"; };
+		1BF8320E2B18670000814066 /* ZikirViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZikirViewCell.xib; sourceTree = "<group>"; };
+		1BF832112B1867E000814066 /* Books */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Books; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,12 +185,14 @@
 		1BF831742B18521900814066 /* SpiritPath */ = {
 			isa = PBXGroup;
 			children = (
-				1BF831752B18521900814066 /* AppDelegate.swift */,
-				1BF831772B18521900814066 /* SceneDelegate.swift */,
-				1BF831792B18521900814066 /* ViewController.swift */,
+				1BF831AA2B18565C00814066 /* Main */,
+				1BF831AE2B1857D500814066 /* HomePage */,
+				1BF831D72B185EE400814066 /* Routine */,
+				1BF831E22B18607900814066 /* Library */,
+				1BF831FD2B18653400814066 /* Zikir */,
 				1BF8317B2B18521900814066 /* Main.storyboard */,
 				1BF831812B18521B00814066 /* Assets.xcassets */,
-				1BF831832B18521B00814066 /* LaunchScreen.storyboard */,
+				1BF832112B1867E000814066 /* Books */,
 				1BF831862B18521B00814066 /* Info.plist */,
 				1BF8317E2B18521900814066 /* SpiritPath.xcdatamodeld */,
 			);
@@ -128,6 +214,174 @@
 				1BF8319B2B18521B00814066 /* SpiritPathUITestsLaunchTests.swift */,
 			);
 			path = SpiritPathUITests;
+			sourceTree = "<group>";
+		};
+		1BF831AA2B18565C00814066 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				1BF831752B18521900814066 /* AppDelegate.swift */,
+				1BF831A82B18564B00814066 /* ResetAndDelete.swift */,
+				1BF831772B18521900814066 /* SceneDelegate.swift */,
+				1BF831AC2B18568A00814066 /* Utilities.swift */,
+				1BF831832B18521B00814066 /* LaunchScreen.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		1BF831AE2B1857D500814066 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				1BF831B12B18583700814066 /* HomePage.swift */,
+				1BF831AF2B1857F700814066 /* Settings */,
+				1BF831B32B18585800814066 /* Chart */,
+				1BF831B02B18580700814066 /* TableViewCells */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		1BF831AF2B1857F700814066 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1BF831BB2B18595D00814066 /* Settings.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		1BF831B02B18580700814066 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				1BF831BF2B185A3400814066 /* DailyZikirsChartTableViewCell.swift */,
+				1BF831C02B185A3400814066 /* DailyZikirsChartTableViewCell.xib */,
+				1BF831C32B185A4900814066 /* WeeklyChartTableViewCell.swift */,
+				1BF831C42B185A4900814066 /* WeeklyChartTableViewCell.xib */,
+				1BF831C72B185A5D00814066 /* DailyPrayerChartTableViewCell.swift */,
+				1BF831C82B185A5D00814066 /* DailyPrayerChartTableViewCell.xib */,
+				1BF831CB2B185A6F00814066 /* DailyReadingChartTableViewCell.swift */,
+				1BF831CC2B185A6F00814066 /* DailyReadingChartTableViewCell.xib */,
+				1BF831CF2B185A8400814066 /* BuildYourRoutineTableViewCell.swift */,
+				1BF831D02B185A8400814066 /* BuildYourRoutineTableViewCell.xib */,
+				1BF831D32B185A9C00814066 /* randomAsmaTableViewCell.swift */,
+				1BF831D42B185A9C00814066 /* randomAsmaTableViewCell.xib */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		1BF831B32B18585800814066 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				1BF831B52B1858CC00814066 /* ChartView.swift */,
+				1BF831B72B1858FB00814066 /* WeeklyZikirChartView.swift */,
+				1BF831BD2B1859F500814066 /* Report.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		1BF831D72B185EE400814066 /* Routine */ = {
+			isa = PBXGroup;
+			children = (
+				1BF831DE2B185FCB00814066 /* RoutinePage.swift */,
+				1BF831DC2B185F9900814066 /* Popover.swift */,
+				1BF831E02B185FE800814066 /* Routine.swift */,
+				1BF831D82B185F0700814066 /* RoutineTableViewCell.swift */,
+				1BF831D92B185F0700814066 /* RoutineTableViewCell.xib */,
+			);
+			path = Routine;
+			sourceTree = "<group>";
+		};
+		1BF831E22B18607900814066 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				1BF831E32B18608900814066 /* ViewControllers */,
+				1BF831E52B1860A500814066 /* Popovers */,
+				1BF831E42B18609D00814066 /* Data */,
+				1BF831E62B1860B300814066 /* TableViewCells */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		1BF831E32B18608900814066 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1BF831E72B18611E00814066 /* BookStore.swift */,
+				1BF831E92B18613F00814066 /* ReadBookPage.swift */,
+				1BF831EB2B18618400814066 /* AddNewBooks.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1BF831E42B18609D00814066 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				1BF831F92B18648200814066 /* LibraryData.swift */,
+				1BF831FB2B18649A00814066 /* PopoverData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		1BF831E52B1860A500814066 /* Popovers */ = {
+			isa = PBXGroup;
+			children = (
+				1BF831ED2B1861C900814066 /* BookStorePopover.swift */,
+				1BF831EF2B1861E000814066 /* ReedBookPopover.swift */,
+			);
+			path = Popovers;
+			sourceTree = "<group>";
+		};
+		1BF831E62B1860B300814066 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				1BF831F12B18620F00814066 /* BookMarksTableViewCell.swift */,
+				1BF831F22B18620F00814066 /* BookMarksTableViewCell.xib */,
+				1BF831F52B18632A00814066 /* LibraryTableViewCell.swift */,
+				1BF831F62B18632A00814066 /* LibraryTableViewCell.xib */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		1BF831FD2B18653400814066 /* Zikir */ = {
+			isa = PBXGroup;
+			children = (
+				1BF831FE2B18654500814066 /* ViewControllers */,
+				1BF831FF2B18655A00814066 /* Popovers */,
+				1BF832002B18656300814066 /* Data */,
+				1BF832022B18657D00814066 /* TableViewCells */,
+			);
+			path = Zikir;
+			sourceTree = "<group>";
+		};
+		1BF831FE2B18654500814066 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1BF832072B18662800814066 /* ZikirStore.swift */,
+				1BF832092B18665F00814066 /* ZikirCounter.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1BF831FF2B18655A00814066 /* Popovers */ = {
+			isa = PBXGroup;
+			children = (
+				1BF832032B1865CF00814066 /* ZikirPopover.swift */,
+			);
+			path = Popovers;
+			sourceTree = "<group>";
+		};
+		1BF832002B18656300814066 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				1BF832052B1865F900814066 /* ZikirData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		1BF832022B18657D00814066 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				1BF8320B2B1866CE00814066 /* ZikirStorSetupTableView.swift */,
+				1BF8320D2B18670000814066 /* ZikirViewCell.swift */,
+				1BF8320E2B18670000814066 /* ZikirViewCell.xib */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,7 +489,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BF831852B18521B00814066 /* LaunchScreen.storyboard in Resources */,
+				1BF831CA2B185A5D00814066 /* DailyPrayerChartTableViewCell.xib in Resources */,
+				1BF831C62B185A4900814066 /* WeeklyChartTableViewCell.xib in Resources */,
+				1BF832102B18670000814066 /* ZikirViewCell.xib in Resources */,
 				1BF831822B18521B00814066 /* Assets.xcassets in Resources */,
+				1BF832122B1867E000814066 /* Books in Resources */,
+				1BF831CE2B185A6F00814066 /* DailyReadingChartTableViewCell.xib in Resources */,
+				1BF831F82B18632A00814066 /* LibraryTableViewCell.xib in Resources */,
+				1BF831C22B185A3400814066 /* DailyZikirsChartTableViewCell.xib in Resources */,
+				1BF831DB2B185F0700814066 /* RoutineTableViewCell.xib in Resources */,
+				1BF831F42B18620F00814066 /* BookMarksTableViewCell.xib in Resources */,
+				1BF831D62B185A9C00814066 /* randomAsmaTableViewCell.xib in Resources */,
+				1BF831D22B185A8400814066 /* BuildYourRoutineTableViewCell.xib in Resources */,
 				1BF8317D2B18521900814066 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,10 +526,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BF8317A2B18521900814066 /* ViewController.swift in Sources */,
+				1BF831A92B18564B00814066 /* ResetAndDelete.swift in Sources */,
+				1BF832082B18662800814066 /* ZikirStore.swift in Sources */,
+				1BF831DD2B185F9900814066 /* Popover.swift in Sources */,
+				1BF831BE2B1859F500814066 /* Report.swift in Sources */,
+				1BF831F32B18620F00814066 /* BookMarksTableViewCell.swift in Sources */,
+				1BF8320C2B1866CE00814066 /* ZikirStorSetupTableView.swift in Sources */,
+				1BF831B22B18583700814066 /* HomePage.swift in Sources */,
+				1BF831F72B18632A00814066 /* LibraryTableViewCell.swift in Sources */,
+				1BF831EE2B1861C900814066 /* BookStorePopover.swift in Sources */,
+				1BF8320F2B18670000814066 /* ZikirViewCell.swift in Sources */,
+				1BF831FC2B18649A00814066 /* PopoverData.swift in Sources */,
+				1BF832062B1865F900814066 /* ZikirData.swift in Sources */,
+				1BF831C52B185A4900814066 /* WeeklyChartTableViewCell.swift in Sources */,
+				1BF831D12B185A8400814066 /* BuildYourRoutineTableViewCell.swift in Sources */,
 				1BF831762B18521900814066 /* AppDelegate.swift in Sources */,
+				1BF831B62B1858CC00814066 /* ChartView.swift in Sources */,
+				1BF831FA2B18648200814066 /* LibraryData.swift in Sources */,
+				1BF8320A2B18665F00814066 /* ZikirCounter.swift in Sources */,
+				1BF831B82B1858FB00814066 /* WeeklyZikirChartView.swift in Sources */,
 				1BF831782B18521900814066 /* SceneDelegate.swift in Sources */,
+				1BF832042B1865CF00814066 /* ZikirPopover.swift in Sources */,
+				1BF831E12B185FE800814066 /* Routine.swift in Sources */,
+				1BF831DF2B185FCB00814066 /* RoutinePage.swift in Sources */,
+				1BF831EC2B18618400814066 /* AddNewBooks.swift in Sources */,
+				1BF831BC2B18595D00814066 /* Settings.swift in Sources */,
+				1BF831EA2B18613F00814066 /* ReadBookPage.swift in Sources */,
+				1BF831C12B185A3400814066 /* DailyZikirsChartTableViewCell.swift in Sources */,
+				1BF831AD2B18568A00814066 /* Utilities.swift in Sources */,
 				1BF831802B18521900814066 /* SpiritPath.xcdatamodeld in Sources */,
+				1BF831C92B185A5D00814066 /* DailyPrayerChartTableViewCell.swift in Sources */,
+				1BF831D52B185A9C00814066 /* randomAsmaTableViewCell.swift in Sources */,
+				1BF831DA2B185F0700814066 /* RoutineTableViewCell.swift in Sources */,
+				1BF831CD2B185A6F00814066 /* DailyReadingChartTableViewCell.swift in Sources */,
+				1BF831E82B18611E00814066 /* BookStore.swift in Sources */,
+				1BF831F02B1861E000814066 /* ReedBookPopover.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
