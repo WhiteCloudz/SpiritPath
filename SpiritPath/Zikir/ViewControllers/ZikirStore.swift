@@ -90,6 +90,7 @@ class ZikirViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             alert.addTextField { textField in
                 textField.placeholder = "Daily Goal (Optional)"
+                textField.keyboardType = .numberPad
             }
             
             alert.addAction(UIAlertAction(title: "Add Zikir", style: .default) { [weak self] _ in

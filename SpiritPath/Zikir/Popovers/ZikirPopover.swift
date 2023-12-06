@@ -12,17 +12,15 @@ import CoreData
 
 extension ZikirViewController {
     
-    func openPopover(){
-        
+    func openPopover() {
         let popoverContentController = UIViewController()
         
-        let contentView = UIView(frame: CGRect(x: 180, y: 100, width: 180, height: 300))
+        let contentView = UIView()
         contentView.backgroundColor = .clear
         
         let AddBookButtonIcon = UIImage(systemName: "plus.square.fill.on.square.fill")
         let userGuideButtonIcone = UIImage(systemName: "questionmark.app.fill")
         let resetButtonIcone = UIImage(systemName: "trash")
-        
         
         let userGuideButton = UIButton(type: .system)
         userGuideButton.frame = CGRect(x: 10, y: 20, width: 40, height: 40)
@@ -30,8 +28,7 @@ extension ZikirViewController {
         userGuideButton.tintColor = UIColor(hex: "2FA1D6")
         userGuideButton.setImage(userGuideButtonIcone, for: .normal)
         userGuideButton.addTarget(self, action: #selector(openUserGuide), for: .touchUpInside)
-        dismiss(animated: true, completion: nil)
-        view.addSubview(userGuideButton)
+        contentView.addSubview(userGuideButton)
         
         let addZikirButton = UIButton(type: .system)
         addZikirButton.frame = CGRect(x: 10, y: 70, width: 40, height: 40)
@@ -39,8 +36,7 @@ extension ZikirViewController {
         addZikirButton.tintColor = UIColor(hex: "2FA1D6")
         addZikirButton.setImage(AddBookButtonIcon, for: .normal)
         addZikirButton.addTarget(self, action: #selector(AddZikir), for: .touchUpInside)
-        dismiss(animated: true, completion: nil)
-        view.addSubview(addZikirButton)
+        contentView.addSubview(addZikirButton)
         
         let resetButton = UIButton(type: .system)
         resetButton.frame = CGRect(x: 10, y: 115, width: 40, height: 40)
@@ -48,24 +44,26 @@ extension ZikirViewController {
         resetButton.tintColor = .red
         resetButton.setImage(resetButtonIcone, for: .normal)
         resetButton.addTarget(self, action: #selector(showDeleteAlert), for: .touchUpInside)
-        dismiss(animated: true, completion: nil)
-        view.addSubview(resetButton)
-    
-        contentView.addSubview(userGuideButton)
-        contentView.addSubview(addZikirButton)
         contentView.addSubview(resetButton)
-       
-     
+        
         popoverContentController.view = contentView
         popoverContentController.preferredContentSize = CGSize(width: 60, height: 170)
         popoverContentController.modalPresentationStyle = .popover
+        
         if let popoverPresentationController = popoverContentController.popoverPresentationController {
-            popoverPresentationController.permittedArrowDirections = .any
+            popoverPresentationController.permittedArrowDirections = []
             popoverPresentationController.delegate = self
             popoverPresentationController.sourceView = self.view
-            popoverPresentationController.sourceRect = CGRect(x: 415, y: 100, width: 180, height: 170) //
-            present(popoverContentController, animated: true, completion: nil)
+        
+            let screenWidth = UIScreen.main.bounds.width
+            let scaledWidth: CGFloat = 60
+            let rightMargin: CGFloat = 0
+            let topMargin: CGFloat = 80
+            
+            popoverPresentationController.sourceRect = CGRect(x: screenWidth - scaledWidth - rightMargin, y: topMargin, width: scaledWidth, height: 0)
         }
+        
+        present(popoverContentController, animated: true, completion: nil)
         
         isPopoverVisible = true
     }
@@ -82,7 +80,7 @@ extension ZikirViewController {
        if let popoverContent = popoverContent {
            let popoverController = popoverContent.popoverPresentationController
            popoverController?.delegate = self
-           popoverController?.permittedArrowDirections = .any
+           popoverController?.permittedArrowDirections = []
            
            
            let addNewBookLabel = UILabel()
@@ -140,12 +138,13 @@ extension ZikirViewController {
            """
            popoverContent.view.addSubview(resetCounterTextView)
 
-          
-
-          
+           let screenWidth = UIScreen.main.bounds.width
+           let scaledWidth: CGFloat = 290
+           let rightMargin: CGFloat = 0
+           let topMargin: CGFloat = 100
            
            popoverController?.sourceView = self.view
-           popoverController?.sourceRect = CGRect(x: 415, y: 120, width: 290, height: 560)
+           popoverController?.sourceRect = CGRect(x: screenWidth - scaledWidth - rightMargin, y: topMargin, width: scaledWidth, height: 0)
            present(popoverContent, animated: true, completion: nil)
        }
    }

@@ -147,10 +147,12 @@ extension HomePage{
         alert.addAction(cancelAction)
         let goAction = UIAlertAction(title: "Yes", style: .default) { [weak self] _ in
             self?.deleteAllData()
+            self?.fetchGoalAndNowValue()
+            self?.tableView.reloadData()
         }
         alert.addAction(goAction)
-        
         present(alert, animated: true, completion: nil)
+      
     }
    
 }

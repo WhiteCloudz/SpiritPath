@@ -35,9 +35,9 @@ class BookMarksTableViewCell: UITableViewCell {
         
         view.layer.cornerRadius = stackView.bounds.height / 5
         stackView.layer.cornerRadius = stackView.bounds.height / 5
-        stackView.backgroundColor = UIColor.gray.withAlphaComponent(0.1)
-        view.backgroundColor = UIColor.purple.withAlphaComponent(0.2)
-        
+        stackView.backgroundColor = .clear
+        view.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.1)
+      
     }
     
 

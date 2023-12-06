@@ -60,16 +60,23 @@ extension BookStore {
         popoverContentController.view = contentView
         popoverContentController.preferredContentSize = CGSize(width: 60, height: 170)
         popoverContentController.modalPresentationStyle = .popover
+        
         if let popoverPresentationController = popoverContentController.popoverPresentationController {
-            popoverPresentationController.permittedArrowDirections = .any
+            popoverPresentationController.permittedArrowDirections = []
             popoverPresentationController.delegate = self
             popoverPresentationController.sourceView = self.view
-            popoverPresentationController.sourceRect = CGRect(x: 415, y: 100, width: 180, height: 170) //
-            present(popoverContentController, animated: true, completion: nil)
+
+            let screenWidth = UIScreen.main.bounds.width
+            let scaledWidth: CGFloat = 60
+            let rightMargin: CGFloat = 0
+            let topMargin: CGFloat = 80
+            
+            popoverPresentationController.sourceRect = CGRect(x: screenWidth - scaledWidth - rightMargin, y: topMargin, width: scaledWidth, height: 0)
         }
         
-        isPopoverVisible = true
+        present(popoverContentController, animated: true, completion: nil)
         
+        isPopoverVisible = true
     }
     
    @objc func openUserGuide(){
@@ -84,7 +91,7 @@ extension BookStore {
        if let popoverContent = popoverContent {
            let popoverController = popoverContent.popoverPresentationController
            popoverController?.delegate = self
-           popoverController?.permittedArrowDirections = .any
+           popoverController?.permittedArrowDirections = []
            
            
            let addNewBookLabel = UILabel()
@@ -124,10 +131,13 @@ extension BookStore {
            """
            popoverContent.view.addSubview(deleteBookTextView)
            
-        
+           let screenWidth = UIScreen.main.bounds.width
+           let scaledWidth: CGFloat = 290
+           let rightMargin: CGFloat = 0
+           let topMargin: CGFloat = 100
            
            popoverController?.sourceView = self.view
-           popoverController?.sourceRect = CGRect(x: 415, y: 100, width: 290, height: 500)
+           popoverController?.sourceRect = CGRect(x: screenWidth - scaledWidth - rightMargin, y: topMargin, width: scaledWidth, height: 0)
            present(popoverContent, animated: true, completion: nil)
        }
    }

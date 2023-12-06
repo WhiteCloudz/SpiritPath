@@ -398,6 +398,7 @@ class ZikirCounter: UIViewController {
         let currentDate = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
+        _ = dateFormatter.string(from: currentDate)
         
         let dayOfWeekFormatter = DateFormatter()
         dayOfWeekFormatter.dateFormat = "EEEE"
@@ -406,19 +407,38 @@ class ZikirCounter: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
+        let calendar = Calendar.current
+        let beginningOfWeek = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: currentDate))!
+        let endOfWeek = calendar.date(byAdding: .day, value: 6, to: beginningOfWeek)!
+        
         let fetchRequest: NSFetchRequest<DataOfWeek> = DataOfWeek.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "dayOfWeek == %@", dayOfWeek)
+            fetchRequest.predicate = NSPredicate(format: "date >= %@ AND date <= %@", beginningOfWeek as NSDate, endOfWeek as NSDate)
+
+            do {
+                let results = try context.fetch(fetchRequest)
+                for object in results {
+                    context.delete(object)
+                }
+                try context.save()
+            } catch {
+                print("Hata: \(error.localizedDescription)")
+            }
+        
+        let fetchRequestForTuday: NSFetchRequest<DataOfWeek> = DataOfWeek.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "date == %@", dayOfWeek)
         
         do {
-            let results = try context.fetch(fetchRequest)
+            let results = try context.fetch(fetchRequestForTuday)
             if let existingRoutine = results.first {
                 existingRoutine.totalValue = String(describing: allDailyZikir)
                 existingRoutine.dayOfWeek = dayOfWeek
+                existingRoutine.date = beginningOfWeek
                 try context.save()
             } else {
                 let newWeeklyData = DataOfWeek(context: context)
                 newWeeklyData.totalValue = String(describing: allDailyZikir)
                 newWeeklyData.dayOfWeek = dayOfWeek
+                newWeeklyData.date = beginningOfWeek
                 try context.save()
             }
         } catch {

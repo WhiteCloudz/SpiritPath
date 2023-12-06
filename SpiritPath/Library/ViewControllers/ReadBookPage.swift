@@ -24,6 +24,7 @@ class ReadBookPage: UIViewController, UIPopoverPresentationControllerDelegate{
     @IBOutlet weak var pageNumber: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var popoverTableView: UITableView!
+    var popoverContent: UIViewController?
     var dataSource = [Popover]()
     var pdfView: PDFView!
     var bookText:String?

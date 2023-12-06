@@ -23,7 +23,6 @@ class HomePage: UIViewController, UIPopoverPresentationControllerDelegate{
     var dataSourceCounter = [ZikirData]()
     var routineChackDataSource = [Routine]()
     var popoverProgressBar = UIProgressView()
-    let choise = ["Select", "Close", "Open"]
     var reminderChoise = ""
     
 

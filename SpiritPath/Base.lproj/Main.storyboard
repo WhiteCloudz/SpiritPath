@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rlb-RG-cvh">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -18,7 +19,8 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.18677863480000001" green="0.63175117970000005" blue="0.84030610319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="selectedImageTintColor" red="0.31562250850000001" green="0.75337177519999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.031372549020000001" green="0.1058823529" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.18677863480000001" green="0.63175117970000005" blue="0.84030610319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="RLe-V4-NDS" kind="relationship" relationship="viewControllers" id="mqs-5L-S4e"/>
@@ -40,6 +42,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NoF-1B-Mz2">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.18677863480000001" green="0.63175117970000005" blue="0.84030610319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.18677863480000001" green="0.63175117970000005" blue="0.84030610319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="nVF-VD-uxf" kind="relationship" relationship="rootViewController" id="rNa-QA-dV4"/>
@@ -287,6 +293,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZpH-gH-AWj">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.31562250850000001" green="0.75337177519999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.18677863480000001" green="0.63175117970000005" blue="0.84030610319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="Uqd-Zq-LdA" kind="relationship" relationship="rootViewController" id="6HM-HK-T5Y"/>
@@ -550,6 +560,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gXk-yV-gvj">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.18677863480000001" green="0.63175117970000005" blue="0.84030610319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.18677863480000001" green="0.63175117970000005" blue="0.84030610319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="JNb-pc-wwv" kind="relationship" relationship="rootViewController" id="Vv5-x9-bQO"/>

@@ -33,7 +33,7 @@ class BookStore: UIViewController, UIDocumentPickerDelegate, UIPopoverPresentati
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBackroundImageToVievController(imageNamed: "backround-3" , backroundView: backroundView)
-        setupView()
+            setupView()
     }
     
     
