@@ -13,12 +13,14 @@ class RoutineTableViewCell: UITableViewCell {
     
     
     @IBOutlet weak var iconeButton: UIButton!
-    @IBOutlet weak var routineName: UITextField!
+    @IBOutlet weak var routineName: UILabel!
     @IBOutlet weak var routineGoal: UITextField!
+    @IBOutlet weak var routineNow: UILabel!
+    @IBOutlet weak var goZikirButton: UIButton!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var steckView: UIStackView!
-    var leftButtonAction: (() -> Void)?
-    var rightButtonAction: (() -> Void)?
+    var updateButtonAction: (() -> Void)?
+    var goZikirButtonAction: (() -> Void)?
    
     let customFont = UIFont(name: "Hiragino Mincho ProN W6", size: 15.0)
     let numbers = Array(0...10000)
@@ -27,14 +29,6 @@ class RoutineTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-      let rightButton = UIButton(type: .system)
-          rightButton.setTitle("", for: .normal)
-          rightButton.addTarget(self, action: #selector(rightButtonTapped), for: .touchUpInside)
-      let xCoordinate = contentView.frame.width - 200 - rightButton.frame.width
-          rightButton.frame = CGRect(x: xCoordinate, y: 10, width: 180, height: 40)
-          contentView.addSubview(rightButton)
-        
         pickerView.dataSource = self
         pickerView.delegate = self
         routineGoal.isUserInteractionEnabled = false
@@ -55,17 +49,19 @@ class RoutineTableViewCell: UITableViewCell {
     func configureCell(_ Routine : Routine, buttonAction: (() -> Void)?){
         routineName.text = Routine.name
         routineGoal.text = Routine.goal
-        self.leftButtonAction = buttonAction
+        self.updateButtonAction = buttonAction
+        self.goZikirButtonAction = buttonAction
+    }
+    
+    
+    @IBAction func goToZikirController(_ sender: Any) {
+        goZikirButtonAction?()
     }
     
     
     @IBAction func LeftButtonTapped(_ sender: Any) {
-        leftButtonAction?()
+        updateButtonAction?()
     }
-    
-    @objc func rightButtonTapped() {
-            rightButtonAction?()
-        }
     
   
 }

@@ -92,7 +92,7 @@ extension ZikirViewController {
         }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-      115
+      130
         
         }
     

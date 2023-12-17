@@ -13,7 +13,6 @@
     <entity name="DataOfWeek" representedClassName="DataOfWeek" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="dayOfWeek" optional="YES" attributeType="String"/>
-        <attribute name="otherTotalValue" optional="YES" attributeType="String"/>
         <attribute name="totalValue" optional="YES" attributeType="String"/>
     </entity>
     <entity name="RoutineData" representedClassName="RoutineData" syncable="YES" codeGenerationType="class">

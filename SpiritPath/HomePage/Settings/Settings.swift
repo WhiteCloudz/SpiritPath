@@ -17,8 +17,8 @@ extension HomePage{
         let popoverContentController = UIViewController()
         
         let contentView = UIView(frame: CGRect(x: 180, y: 140, width: 280, height: 320))
-        contentView.backgroundColor = .clear
-        
+        setupBackroundImageToVievController(imageNamed: "backround-5" , backroundView: contentView)
+
         let userIcon = UIImageView()
         userIcon.frame = CGRect(x: 100, y: 45, width: 80, height: 80)
         userIcon.backgroundColor = .clear
@@ -31,7 +31,7 @@ extension HomePage{
         description.textAlignment = .center
         description.numberOfLines = 0
         description.text = "You can receive in-app reminders about your daily routine by using the switch under 'Routine Reminder'. You can also delete all stored data and restore your app to the state it was in when you first installed it by clicking the 'Factory Reset' button at the bottom of the page."
-        description.textColor = .black
+        description.textColor = UIColor(hex: "201B4D")
         contentView.addSubview(description)
         
         let reminderHourLeable = UILabel()
@@ -39,7 +39,7 @@ extension HomePage{
         reminderHourLeable.font = UIFont(name: "Hiragino Mincho ProN W6", size: 18.0)
         reminderHourLeable.textAlignment = .center
         reminderHourLeable.text = "Routine Reminder"
-        reminderHourLeable.textColor = UIColor(hex: "2FA1D6")
+        reminderHourLeable.textColor = UIColor(hex: "201B4D")
         contentView.addSubview(reminderHourLeable)
         
         let reminderSwitch = UISwitch()

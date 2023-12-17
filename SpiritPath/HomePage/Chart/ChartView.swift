@@ -8,64 +8,86 @@
 import UIKit
 
 class ChartView: UIView {
-
+    
     var data = [Double]() {
         didSet {
             setNeedsDisplay()
         }
     }
-
+    
+    var color: String = "" { // Renk değerini bir String olarak saklayın
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+   
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        drawChart()
+        drawCircularProgress()
     }
 
-    func drawChart() {
-        
+    func drawCircularProgress() {
         subviews.forEach { $0.removeFromSuperview() }
 
         guard data.count == 2 else {
             return
         }
 
-        let barWidth = bounds.width / CGFloat(data.count)
-        let yOffset = bounds.height
+        let scaleFactor: CGFloat = 2.0
+        let lineWidth: CGFloat = 7.0
+        let centerPoint = CGPoint(x: bounds.midX, y: bounds.midY)
+        let radius = (min(bounds.width, bounds.height) - lineWidth) / 4.0 * scaleFactor
 
-        let colors: [UIColor] = [UIColor(hex: "038EFC"), UIColor(hex: "04D3F5")]
-        let chart = ["Goal", "Now"]
+        let totalProgress = CGFloat(data[0])
+        let currentProgress = CGFloat(data[1])
+        _ = currentProgress / totalProgress * 100
 
-        let maxValue = max(data[0], data[1])
+        let backgroundPath = UIBezierPath(arcCenter: centerPoint,
+                                          radius: radius * 2,
+                                          startAngle: -CGFloat.pi / 2,
+                                          endAngle: 2 * CGFloat.pi,
+                                          clockwise: true)
 
-        for (index, value) in data.enumerated() {
-            let x = CGFloat(index) * barWidth
-            let barHeight = (bounds.height * CGFloat(value) / CGFloat(maxValue))
+        let backgroundLayer = CAShapeLayer()
+        backgroundLayer.path = backgroundPath.cgPath
+        backgroundLayer.strokeColor = UIColor(hex: "04D3F5").cgColor
+        backgroundLayer.fillColor = UIColor.clear.cgColor
+        backgroundLayer.lineWidth = lineWidth * scaleFactor
 
-            let rect = CGRect(x: x, y: yOffset - barHeight, width: barWidth, height: barHeight)
-            let barPath = UIBezierPath(rect: rect)
-            let fillColor = colors[index].withAlphaComponent(1.0)
-            barPath.fill(with: .clear, alpha: 1.0)
+        layer.addSublayer(backgroundLayer)
 
-            fillColor.setFill()
-            barPath.fill()
+        let progressPath = UIBezierPath(arcCenter: centerPoint,
+                                        radius: radius * 2,
+                                        startAngle: -CGFloat.pi / 2,
+                                        endAngle: 2 * CGFloat.pi * currentProgress / totalProgress - CGFloat.pi / 2,
+                                        clockwise: true)
 
-            let label = UILabel()
-            label.text = chart[index]
-            label.font = UIFont.systemFont(ofSize: 8)
-            label.textColor = UIColor.black
-            label.textAlignment = .center
-            label.frame = CGRect(x: x, y: yOffset, width: barWidth, height: 20)
-            addSubview(label)
+        let progressLayer = CAShapeLayer()
+        progressLayer.path = progressPath.cgPath
+        progressLayer.strokeColor = UIColor(hex: color).cgColor // Renk değerini UIColor'a dönüştürün
+        progressLayer.fillColor = UIColor.clear.cgColor
+        progressLayer.lineWidth = lineWidth * scaleFactor
+        progressLayer.lineCap = .round
 
-           
-            let valueLabel = UILabel()
-            valueLabel.text = "\(Int(value))"
-            valueLabel.font = UIFont.systemFont(ofSize: 8)
-            valueLabel.textColor = UIColor.black
-            valueLabel.textAlignment = .center
-            valueLabel.frame = CGRect(x: x, y: (value > 0) ? yOffset - barHeight - 20 : yOffset - 20, width: barWidth, height: 20)
-            addSubview(valueLabel)
+        layer.addSublayer(progressLayer)
+        
+        // Barların içine değerleri yazmak için metin katmanları
+        let valueTextLayer = CATextLayer()
+        valueTextLayer.font = UIFont(name: "Hiragino Mincho ProN W6", size: 0)
+        valueTextLayer.fontSize = 10 * scaleFactor // Yazı boyutu artırıldı
+        valueTextLayer.foregroundColor = UIColor(hex: "201B4D").cgColor
+        valueTextLayer.alignmentMode = .center
+        valueTextLayer.frame = CGRect(x: centerPoint.x - 20 * scaleFactor, y: centerPoint.y - 7 * scaleFactor, width: 40 * scaleFactor, height: 20 * scaleFactor)
+    
+        if totalProgress > 0 {
+            let progressPercentage = currentProgress / totalProgress * 100
+            valueTextLayer.string = "\(Int(progressPercentage))%"
+        } else {
+            valueTextLayer.string = "0%"
         }
+    
+
+        layer.addSublayer(valueTextLayer)
     }
 }
-
 

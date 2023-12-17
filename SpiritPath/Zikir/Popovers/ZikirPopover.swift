@@ -16,16 +16,16 @@ extension ZikirViewController {
         let popoverContentController = UIViewController()
         
         let contentView = UIView()
-        contentView.backgroundColor = .clear
-        
+        setupBackroundImageToVievController(imageNamed: "backround-5" , backroundView: contentView)
+
         let AddBookButtonIcon = UIImage(systemName: "plus.square.fill.on.square.fill")
         let userGuideButtonIcone = UIImage(systemName: "questionmark.app.fill")
-        let resetButtonIcone = UIImage(systemName: "trash")
+        let resetButtonIcone = UIImage(systemName: "trash.fill")
         
         let userGuideButton = UIButton(type: .system)
         userGuideButton.frame = CGRect(x: 10, y: 20, width: 40, height: 40)
         userGuideButton.backgroundColor = .clear
-        userGuideButton.tintColor = UIColor(hex: "2FA1D6")
+        userGuideButton.tintColor = UIColor(hex: "201B4D")
         userGuideButton.setImage(userGuideButtonIcone, for: .normal)
         userGuideButton.addTarget(self, action: #selector(openUserGuide), for: .touchUpInside)
         contentView.addSubview(userGuideButton)
@@ -33,7 +33,7 @@ extension ZikirViewController {
         let addZikirButton = UIButton(type: .system)
         addZikirButton.frame = CGRect(x: 10, y: 70, width: 40, height: 40)
         addZikirButton.backgroundColor = .clear
-        addZikirButton.tintColor = UIColor(hex: "2FA1D6")
+        addZikirButton.tintColor = UIColor(hex: "201B4D")
         addZikirButton.setImage(AddBookButtonIcon, for: .normal)
         addZikirButton.addTarget(self, action: #selector(AddZikir), for: .touchUpInside)
         contentView.addSubview(addZikirButton)
@@ -72,12 +72,11 @@ extension ZikirViewController {
         
        dismiss(animated: true, completion: nil)
 
-       popoverContent = UIViewController()
-       popoverContent?.modalPresentationStyle = .popover
-       popoverContent?.preferredContentSize = CGSize(width: 290, height: 560)
-       popoverContent?.view.backgroundColor = .clear
-
-       if let popoverContent = popoverContent {
+      let popoverContent = UIViewController()
+       setupBackroundImageToVievController(imageNamed: "backround-5" , backroundView: popoverContent.view)
+       popoverContent.modalPresentationStyle = .popover
+       popoverContent.preferredContentSize = CGSize(width: 290, height: 560)
+      
            let popoverController = popoverContent.popoverPresentationController
            popoverController?.delegate = self
            popoverController?.permittedArrowDirections = []
@@ -86,14 +85,14 @@ extension ZikirViewController {
            let addNewBookLabel = UILabel()
            addNewBookLabel.frame = CGRect(x: 25, y: 40, width: 250, height: 40)
            addNewBookLabel.backgroundColor = .clear
-           addNewBookLabel.textColor = .black
+           addNewBookLabel.textColor =  UIColor(hex: "201B4D")
            addNewBookLabel.font = UIFont.systemFont(ofSize: 19)
            addNewBookLabel.text = "     Adding a new zikir:"
            popoverContent.view.addSubview(addNewBookLabel)
            
            let addBookTextView = UITextView()
            addBookTextView.frame = CGRect(x: 20, y: 80, width: 250, height: 60)
-           addBookTextView.textColor = .black
+           addBookTextView.textColor =  UIColor(hex: "201B4D")
            addBookTextView.backgroundColor = .clear
            addBookTextView.font = UIFont.systemFont(ofSize: 15)
            addBookTextView.text = """
@@ -105,14 +104,14 @@ extension ZikirViewController {
            let deleteBookLabel = UILabel()
            deleteBookLabel.frame = CGRect(x: 25, y: 150, width: 250, height: 40)
            deleteBookLabel.backgroundColor = .clear
-           deleteBookLabel.textColor = .black
+           deleteBookLabel.textColor =  UIColor(hex: "201B4D")
            deleteBookLabel.font = UIFont.systemFont(ofSize: 19)
            deleteBookLabel.text = "     Removing a zikir:"
            popoverContent.view.addSubview(deleteBookLabel)
            
            let deleteBookTextView = UITextView()
            deleteBookTextView.frame = CGRect(x: 20, y: 190, width: 250, height: 220)
-           deleteBookTextView.textColor = .black
+           deleteBookTextView.textColor =  UIColor(hex: "201B4D")
            deleteBookTextView.backgroundColor = .clear
            deleteBookTextView.font = UIFont.systemFont(ofSize: 15)
            deleteBookTextView.text = """
@@ -123,14 +122,14 @@ extension ZikirViewController {
            let resetCounterLabel = UILabel()
            resetCounterLabel.frame = CGRect(x: 25, y: 410, width: 250, height: 40)
            resetCounterLabel.backgroundColor = .clear
-           resetCounterLabel.textColor = .black
+           resetCounterLabel.textColor =  UIColor(hex: "201B4D")
            resetCounterLabel.font = UIFont.systemFont(ofSize: 19)
            resetCounterLabel.text = "     Reseting a counter:"
            popoverContent.view.addSubview(resetCounterLabel)
            
            let  resetCounterTextView = UITextView()
            resetCounterTextView.frame = CGRect(x: 20, y: 450, width: 250, height: 80)
-           resetCounterTextView.textColor = .black
+           resetCounterTextView.textColor =  UIColor(hex: "201B4D")
            resetCounterTextView.backgroundColor = .clear
            resetCounterTextView.font = UIFont.systemFont(ofSize: 15)
            resetCounterTextView.text = """
@@ -146,7 +145,7 @@ extension ZikirViewController {
            popoverController?.sourceView = self.view
            popoverController?.sourceRect = CGRect(x: screenWidth - scaledWidth - rightMargin, y: topMargin, width: scaledWidth, height: 0)
            present(popoverContent, animated: true, completion: nil)
-       }
+       
    }
     
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {

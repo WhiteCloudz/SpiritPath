@@ -15,7 +15,7 @@ extension ReadBookPage{
              let popoverContentController = UIViewController()
 
              let contentView = UIView(frame: CGRect(x: 180, y: 98, width: 180, height: 300))
-        contentView.backgroundColor = .clear
+             setupBackroundImageToVievController(imageNamed: "backround-5" , backroundView: contentView)
 
              let bookmarkIcon = UIImage(systemName: "bookmark")
              let bookPagesIcon = UIImage(systemName: "doc.text.magnifyingglass")
@@ -25,7 +25,7 @@ extension ReadBookPage{
              let goToPageButton = UIButton(type: .system)
              goToPageButton.frame = CGRect(x: 10, y: 15, width: 40, height: 40)
              goToPageButton.backgroundColor = .clear
-             goToPageButton.tintColor = UIColor(hex: "2FA1D6")
+             goToPageButton.tintColor = UIColor(hex: "201B4D")
              goToPageButton.setImage(bookPagesIcon, for: .normal)
              goToPageButton.layer.cornerRadius = goToPageButton.bounds.height / 2
              goToPageButton.addTarget(self, action: #selector(showPageSelectionAlert), for: .touchUpInside)
@@ -35,7 +35,7 @@ extension ReadBookPage{
              let viewBookmarksButton = UIButton(type: .system)
              viewBookmarksButton.frame = CGRect(x: 10, y: 65, width: 40, height: 40)
              viewBookmarksButton.backgroundColor = .clear
-             viewBookmarksButton.tintColor = UIColor(hex: "2FA1D6")
+             viewBookmarksButton.tintColor = UIColor(hex: "201B4D")
              viewBookmarksButton.setImage(viewBookmarkIcon, for: .normal)
              viewBookmarksButton.layer.cornerRadius = viewBookmarksButton.bounds.height / 2
              viewBookmarksButton.addTarget(self, action: #selector(openBookmarksPopover), for: .touchUpInside)
@@ -45,7 +45,7 @@ extension ReadBookPage{
              let addBookmarkButton = UIButton(type: .system)
              addBookmarkButton.frame = CGRect(x: 10, y: 115, width: 40, height: 40)
              addBookmarkButton.backgroundColor = .clear
-             addBookmarkButton.tintColor = UIColor(hex: "2FA1D6")
+             addBookmarkButton.tintColor = UIColor(hex: "201B4D")
              addBookmarkButton.setImage(bookmarkIcon, for: .normal)
              addBookmarkButton.layer.cornerRadius = addBookmarkButton.bounds.height / 2
              addBookmarkButton.addTarget(self, action: #selector(addBookmarks), for: .touchUpInside)
@@ -88,11 +88,10 @@ extension ReadBookPage{
     @objc func openBookmarksPopover() {
         dismiss(animated: true, completion: nil)
 
-        popoverContent = UIViewController()
-        popoverContent?.modalPresentationStyle = .popover
-        popoverContent?.preferredContentSize = CGSize(width: 250, height: 500)
+        let popoverContent = UIViewController()
+        popoverContent.modalPresentationStyle = .popover
+        popoverContent.preferredContentSize = CGSize(width: 250, height: 500)
         
-        if let popoverContent = popoverContent {
             let popoverController = popoverContent.popoverPresentationController
             popoverController?.delegate = self
             popoverController?.permittedArrowDirections = []
@@ -100,7 +99,7 @@ extension ReadBookPage{
             let tableView = UITableView(frame: CGRect(x: 5, y: 20, width: 80, height: 30))
             tableView.dataSource = self
             tableView.delegate = self
-            tableView.backgroundColor = UIColor.clear
+            tableView.backgroundColor = UIColor(hex: "D9D9D9")
             tableView.register(UINib(nibName: "BookMarksTableViewCell", bundle: nil), forCellReuseIdentifier: "BookMarksTableViewCell")
             popoverContent.view = tableView
             popoverTableView = tableView
@@ -114,7 +113,7 @@ extension ReadBookPage{
             popoverController?.sourceView = self.view
             popoverController?.sourceRect = CGRect(x: screenWidth - scaledWidth - rightMargin, y: topMargin, width: scaledWidth, height: 0)
             present(popoverContent, animated: true, completion: nil)
-        }
+        
     }
     
 

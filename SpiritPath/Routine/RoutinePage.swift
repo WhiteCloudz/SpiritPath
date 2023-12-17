@@ -75,29 +75,28 @@ class RoutinePage: UIViewController, UIPopoverPresentationControllerDelegate, UI
         let popoverContentController = UIViewController()
         
         let contentView = UIView(frame: CGRect(x: 180, y: 140, width: 270, height: 320))
-        contentView.backgroundColor = .clear
-        
-        let questionButtonIcone = UIImage(systemName: "questionmark.circle.fill")
-        
+        setupBackroundImageToVievController(imageNamed: "backround-5" , backroundView: contentView)
+ 
+       
         nameTextFiel = UITextField()
         nameTextFiel?.frame = CGRect(x: 30, y: 50, width: 240, height: 40)
-        nameTextFiel?.backgroundColor = .clear
         nameTextFiel?.borderStyle = .roundedRect
         nameTextFiel?.textAlignment = .center
-        nameTextFiel?.placeholder = "Routine Name"
-        nameTextFiel?.textColor = .black
+        nameTextFiel?.attributedPlaceholder = NSAttributedString(string:  "Routine Name", attributes: [NSAttributedString.Key.foregroundColor: UIColor(hex: "919191")])
+        nameTextFiel?.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
+        nameTextFiel?.textColor = UIColor(hex: "201B4D")
         nameTextFiel?.layer.cornerRadius = (nameTextFiel?.bounds.height ?? 0) / 8
         contentView.addSubview(nameTextFiel!)
         
         
         goalTextFiel = UITextField()
         goalTextFiel?.frame = CGRect(x: 30, y: 110, width: 240, height: 40)
-        goalTextFiel?.backgroundColor = .clear
         goalTextFiel?.borderStyle = .roundedRect
         goalTextFiel?.textAlignment = .center
-        goalTextFiel?.placeholder = "Your Goal"
         goalTextFiel?.keyboardType = .numberPad
-        goalTextFiel?.textColor = .black
+        goalTextFiel?.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
+        goalTextFiel?.textColor = UIColor(hex: "201B4D")
+        goalTextFiel?.attributedPlaceholder = NSAttributedString(string: "Your Goal", attributes: [NSAttributedString.Key.foregroundColor: UIColor(hex: "919191")])
         goalTextFiel?.layer.cornerRadius = (goalTextFiel?.bounds.height ?? 0) / 8
         contentView.addSubview(goalTextFiel!)
         
@@ -105,28 +104,21 @@ class RoutinePage: UIViewController, UIPopoverPresentationControllerDelegate, UI
         pickerView = UIPickerView()
         pickerView?.frame = CGRect(x: 45, y: 170, width: 210, height: 70)
         pickerView?.backgroundColor = .clear
+        pickerView?.tintColor = UIColor(hex: "201B4D")
         pickerView?.dataSource = self
         pickerView?.delegate = self
         contentView.addSubview(pickerView!)
         
         let saveButton = UIButton(type: .system)
         saveButton.frame = CGRect(x: 95, y: 290, width: 110, height: 35)
-        saveButton.backgroundColor = UIColor(hex: "2FA1D6")
-        saveButton.tintColor = .black
+        saveButton.backgroundColor = UIColor(hex: "03BDF7")
+        saveButton.tintColor = UIColor(hex: "D9D9D9")
         saveButton.setTitle("Save", for: .normal)
         saveButton.layer.cornerRadius = saveButton.bounds.height / 2
         saveButton.addTarget(self, action: #selector(addRoutine), for: .touchUpInside)
         view.addSubview(saveButton)
         contentView.addSubview(saveButton)
-        
-        let questionButton = UIButton(type: .system)
-        questionButton.frame = CGRect(x: 225, y: 5, width: 110, height: 35)
-        questionButton.backgroundColor = .clear
-        questionButton.tintColor = UIColor(hex: "AC48DD")
-        questionButton.addTarget(self, action: #selector(openUserGuide), for: .touchUpInside)
-        view.addSubview(questionButton)
-        questionButton.setImage(questionButtonIcone, for: .normal)
-        contentView.addSubview(questionButton)
+     
         
         popoverContentController.view = contentView
         popoverContentController.preferredContentSize = CGSize(width: 300, height: 350)
@@ -328,31 +320,45 @@ extension RoutinePage: UITableViewDelegate, UITableViewDataSource {
         if control == "Zikir" {
            cell.pickerView.isUserInteractionEnabled = false
            cell.iconeButton.setImage(zikirIcone, for: .normal)
-           cell.iconeButton.tintColor = UIColor(hex: "FF2D55")
-           cell.routineName.textColor = UIColor(hex: "FF2D55")
-           cell.routineGoal.textColor = UIColor(hex: "FF2D55")
-           updateZikirPickerView(picker: cell.pickerView, name: nameRoutine)
+           cell.iconeButton.tintColor = UIColor(hex: "038BFC") 
+           cell.routineName.textColor = UIColor(hex: "038BFC")
+           cell.routineGoal.textColor = UIColor(hex: "038BFC")
+           cell.goZikirButton.isHidden = false
+           cell.routineNow.isHidden = false
+           cell.pickerView.isHidden = true
+           
+            updateZikirPickerView(picker: cell.pickerView, name: nameRoutine, nowValue: cell.routineNow)
         } else if control == "Prayer" {
            cell.iconeButton.setImage(prayerIcone, for: .normal)
            cell.iconeButton.tintColor = UIColor(hex: "A838DB")
            cell.routineName.textColor = UIColor(hex: "A838DB")
            cell.routineGoal.textColor = UIColor(hex: "A838DB")
-           updateOtherPickerView(picker: cell.pickerView, name: nameRoutine)
+            updateOtherPickerView(picker: cell.pickerView, name: nameRoutine, nowValue: cell.routineNow)
+           cell.routineNow.isHidden = true
+           cell.goZikirButton.isHidden = true
+           cell.pickerView.isHidden = false
+           cell.selectionStyle = .none
         } else {
            cell.iconeButton.setImage(readingIcone, for: .normal)
-           cell.iconeButton.tintColor = UIColor(hex: "037AFE")
-           cell.routineName.textColor = UIColor(hex: "037AFE")
-           cell.routineGoal.textColor = UIColor(hex: "037AFE")
-           updateOtherPickerView(picker: cell.pickerView, name: nameRoutine)
+           cell.iconeButton.tintColor = UIColor(hex: "FE2D54")
+           cell.routineName.textColor = UIColor(hex: "FE2D54")
+           cell.routineGoal.textColor = UIColor(hex: "FE2D54")
+            updateOtherPickerView(picker: cell.pickerView, name: nameRoutine, nowValue: cell.routineNow)
+           cell.routineNow.isHidden = true
+           cell.goZikirButton.isHidden = true
+           cell.pickerView.isHidden = false
+           cell.selectionStyle = .none
         }
         
-        cell.leftButtonAction = {
+        cell.updateButtonAction = {
             guard let name = cell.routineName.text else {return}
             self.UpdateRoutineGoalValue(name: name)
             self.tableView.reloadData()
+            cell.pickerView.isUserInteractionEnabled = true
+            cell.goZikirButton.isUserInteractionEnabled = true
         }
         
-        cell.rightButtonAction = {
+        cell.goZikirButtonAction = {
             if control == "Zikir" {
                 let storyBoard = UIStoryboard(name: "Main", bundle: nil)
                 let ZikirVC = storyBoard.instantiateViewController(withIdentifier: "ZikirCounter") as! ZikirCounter
@@ -362,7 +368,8 @@ extension RoutinePage: UITableViewDelegate, UITableViewDataSource {
                 ZikirVC.zikirControl = "counter"
             }
         }
-        
+        cell.pickerView.isUserInteractionEnabled = true
+        cell.goZikirButton.isUserInteractionEnabled = true
         return cell
     }
     
@@ -370,7 +377,7 @@ extension RoutinePage: UITableViewDelegate, UITableViewDataSource {
     
     
     
-    func updatePickerView(picker: UIPickerView, name: String) {
+    func updatePickerView(picker: UIPickerView, name: String, nowValue:UILabel) {
         let currentDate = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -389,6 +396,7 @@ extension RoutinePage: UITableViewDelegate, UITableViewDataSource {
                     if existingDateStr == currentDateStr {
                         if let selectedNumber = Int(existingRoutine.today ?? "0"), let row = numbers.firstIndex(of: selectedNumber) {
                             picker.selectRow(row, inComponent: 0, animated: false)
+                            nowValue.text = existingRoutine.today
                         }
                     } else {
                         picker.selectRow(0, inComponent: 0, animated: false)
@@ -404,13 +412,13 @@ extension RoutinePage: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-    func updateOtherPickerView(picker: UIPickerView, name: String) {
-        updatePickerView(picker: picker, name: name)
+    func updateOtherPickerView(picker: UIPickerView, name: String, nowValue:UILabel) {
+        updatePickerView(picker: picker, name: name, nowValue:nowValue)
        
     }
 
-    func updateZikirPickerView(picker: UIPickerView, name: String) {
-        updatePickerView(picker: picker, name: name)
+    func updateZikirPickerView(picker: UIPickerView, name: String, nowValue:UILabel) {
+        updatePickerView(picker: picker, name: name, nowValue:nowValue)
        
     }
     
@@ -420,6 +428,13 @@ extension RoutinePage: UITableViewDelegate, UITableViewDataSource {
        70
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let routineData = dataSource[indexPath.row]
+        let control = routineData.category
+        if control == "Prayer" || control == "Reading" {
+            return
+        }
+    }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {

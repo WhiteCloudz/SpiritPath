@@ -41,6 +41,7 @@ class ZikirCounter: UIViewController {
     @IBOutlet weak var addZikirAmountButton: UIButton!
     @IBOutlet weak var asmaZikirDescription: UITextView!
     
+    
     var updateDataClosure: (() -> Void)?
     var custom:String?
     var zikirName:String?
@@ -49,33 +50,37 @@ class ZikirCounter: UIViewController {
     var zikirControl:String?
     var totalZikir:Int = 0
     var todayZikir:Int = 0
+    var goalZikir:Int = 0
     var allDailyZikir:Int = 0
-    
+    var secondTodayZikir:Int = 0
+    var thirdTodayZikir:Int = 0
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupBackroundImageToVievController(imageNamed: "backround-3" , backroundView: backroundView)
-
+        setupBackroundImageToVievController(imageNamed: "backround-5" , backroundView: backroundView)
+        firstView.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.2)
+        secondView.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.2)
         guard let imageName = zikirName else {return}
         setImage(imageName: imageName, textView: asmaZikirDescription, imageView: zikirImageView)
         setupView()
         SetRecomendText ()
         fetchWeeklyData()
-        print(allDailyZikir)
     }
     
     func setupView(){
         setupCornerRadius()
         setupCounterView()
         setupCallSavedData()
-        
     }
     
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         ToolTipMessage()
+        
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         setupSavedData()
@@ -124,20 +129,91 @@ class ZikirCounter: UIViewController {
     
     
     @IBAction func TappedButton(_ sender: Any) {
+        self.view.frame.origin.y = 0
         totalZikir += 1
-        todayZikir += 1
+        setupTudayZikir()
         allDailyZikir += 1
         updateDataClosure?()
         if zikirControl == "counter" {
             zikirTodayUp.text = String(describing: todayZikir)
             zikirTotalUp.text = String(describing: totalZikir)
-        } else{
+        } else {
             zikirTodayDown.text = String(describing: todayZikir)
             zikirTotalDown.text = String(describing: totalZikir)
         }
-        let sound = UIImpactFeedbackGenerator(style: .medium)
-        sound.impactOccurred()
-        SetRecomendText ()
+        SetRecomendText()
+        setupCounterProgressBar()
+        addHapticFeedback()
+        callPlaySound()
+        
+    }
+    
+    
+    func setupTudayZikir(){
+        switch zikirControl {
+        case "counter":
+        if todayZikir > goalZikir {
+           todayZikir += 1
+           secondTodayZikir += 1
+        }else if secondTodayZikir > goalZikir{
+           todayZikir += 1
+           thirdTodayZikir += 1
+        }else{
+           todayZikir += 1
+    }
+        case "controlAsma":
+            guard let recommended = Int(zikirRecomended ?? "0") else { return }
+               if todayZikir > recommended {
+                  todayZikir += 1
+                  secondTodayZikir += 1
+               }else if secondTodayZikir > recommended{
+                todayZikir += 1
+                thirdTodayZikir += 1
+               }else{
+                  todayZikir += 1
+    }
+        default:
+           return
+        }
+        
+    }
+    
+    
+    
+    func setupCounterProgressBar(){
+        
+        switch zikirControl {
+        case "counter":
+            if todayZikir > goalZikir {
+                drawProgressCircle(showWithView: firstView, goal: goalZikir, today: secondTodayZikir)
+            } else if secondTodayZikir > goalZikir  {
+                drawProgressCircle(showWithView: firstView, goal: goalZikir, today: thirdTodayZikir)
+            }else {
+                drawProgressCircle(showWithView: firstView, goal: goalZikir, today: todayZikir)
+            }
+        case "controlAsma":
+            guard let recommended = Int(zikirRecomended ?? "0") else { return }
+            if todayZikir > recommended {
+                drawProgressCircle(showWithView: secondView, goal: recommended, today: secondTodayZikir)
+            } else if secondTodayZikir > recommended  {
+                drawProgressCircle(showWithView: secondView, goal: recommended, today: thirdTodayZikir)
+            }else {
+                drawProgressCircle(showWithView: secondView, goal: recommended, today: todayZikir)
+            }
+            
+        default:
+           return
+        }
+        
+    }
+    
+    
+    
+    
+    func addHapticFeedback() {
+        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .medium)
+        impactFeedbackgenerator.prepare()
+        impactFeedbackgenerator.impactOccurred()
     }
     
     
@@ -167,6 +243,7 @@ class ZikirCounter: UIViewController {
                 zikirTotalUp.text = String(describing: totalZikir)
                 zikirTodayDown.text = String(describing: todayZikir)
                 zikirTotalDown.text = String(describing: totalZikir)
+                setupCounterProgressBar()
             }
         })
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
@@ -185,6 +262,7 @@ class ZikirCounter: UIViewController {
                 self?.allDailyZikir = 0
                 self?.totalZikir = 0
                 self?.todayZikir = 0
+                self?.setupCounterProgressBar()
                 
             })
             alert.addAction(UIAlertAction(title: "Cancel", style: .default))
@@ -193,7 +271,6 @@ class ZikirCounter: UIViewController {
     }
     
     func fetchCounterDataAndSetCounter() {
-        
         guard let nameZikir = zikirName else {return}
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
@@ -207,6 +284,7 @@ class ZikirCounter: UIViewController {
                 guard let zikirName = zikir.name,
                       let zikirDate = zikir.date,
                       let zikirTotal = zikir.total,
+                      let zikirGoal = zikir.goal,
                       let zikirToday = zikir.today else {return}
                 guard let total = Int(zikirTotal), let today = Int(zikirToday) else {return}
                 
@@ -214,7 +292,7 @@ class ZikirCounter: UIViewController {
                 zikirNameUp.text = zikirName
                 zikirTotalUp.text = zikirTotal
                 totalZikir = total
-             
+                goalZikir = Int(zikirGoal) ?? 0
                 
             }
             
@@ -356,6 +434,7 @@ class ZikirCounter: UIViewController {
     func setupCornerRadius(){
         firstView.layer.cornerRadius = firstView.bounds.height / 30
         secondView.layer.cornerRadius = secondView.bounds.height / 30
+    
     }
     
     func controlTodayDate(zikirDate:String, today:String, todayInt:Int){
@@ -398,7 +477,6 @@ class ZikirCounter: UIViewController {
         let currentDate = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        _ = dateFormatter.string(from: currentDate)
         
         let dayOfWeekFormatter = DateFormatter()
         dayOfWeekFormatter.dateFormat = "EEEE"
@@ -407,75 +485,95 @@ class ZikirCounter: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
-        let calendar = Calendar.current
-        let beginningOfWeek = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: currentDate))!
-        let endOfWeek = calendar.date(byAdding: .day, value: 6, to: beginningOfWeek)!
-        
-        let fetchRequest: NSFetchRequest<DataOfWeek> = DataOfWeek.fetchRequest()
-            fetchRequest.predicate = NSPredicate(format: "date >= %@ AND date <= %@", beginningOfWeek as NSDate, endOfWeek as NSDate)
-
-            do {
-                let results = try context.fetch(fetchRequest)
-                for object in results {
-                    context.delete(object)
-                }
-                try context.save()
-            } catch {
-                print("Hata: \(error.localizedDescription)")
-            }
-        
-        let fetchRequestForTuday: NSFetchRequest<DataOfWeek> = DataOfWeek.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "date == %@", dayOfWeek)
+        let fetchRequestForToday: NSFetchRequest<DataOfWeek> = DataOfWeek.fetchRequest()
+        fetchRequestForToday.predicate = NSPredicate(format: "dayOfWeek == %@", dayOfWeek)
         
         do {
-            let results = try context.fetch(fetchRequestForTuday)
-            if let existingRoutine = results.first {
-                existingRoutine.totalValue = String(describing: allDailyZikir)
-                existingRoutine.dayOfWeek = dayOfWeek
-                existingRoutine.date = beginningOfWeek
-                try context.save()
-            } else {
-                let newWeeklyData = DataOfWeek(context: context)
-                newWeeklyData.totalValue = String(describing: allDailyZikir)
-                newWeeklyData.dayOfWeek = dayOfWeek
-                newWeeklyData.date = beginningOfWeek
-                try context.save()
+            let results = try context.fetch(fetchRequestForToday)
+            for object in results {
+                context.delete(object) // Önceki kaydı sil
             }
+            
+            let newWeeklyData = DataOfWeek(context: context) // Yeni kayıt oluştur
+            newWeeklyData.totalValue = String(describing: allDailyZikir)
+            newWeeklyData.dayOfWeek = dayOfWeek
+            newWeeklyData.date = currentDate
+            try context.save()
         } catch {
             print("Hata: \(error.localizedDescription)")
         }
     }
     
     func fetchWeeklyData(){
-        let currentDate = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+               let currentDate = Date()
+               let dateFormatter = DateFormatter()
+               dateFormatter.dateFormat = "yyyy-MM-dd"
+               
+               let dayOfWeekFormatter = DateFormatter()
+               dayOfWeekFormatter.dateFormat = "EEEE"
+               let dayOfWeek = dayOfWeekFormatter.string(from: currentDate)
+               
+               let appDelegate = UIApplication.shared.delegate as! AppDelegate
+               let context = appDelegate.persistentContainer.viewContext
+               
+               let fetchRequest: NSFetchRequest<DataOfWeek> = DataOfWeek.fetchRequest()
+               fetchRequest.predicate = NSPredicate(format: "dayOfWeek == %@", dayOfWeek)
+               
+               do {
+                   let results = try context.fetch(fetchRequest)
+                   if let existingRoutine = results.first {
+                       let total = Int(existingRoutine.totalValue ?? "0")
+                       allDailyZikir = total ?? 0
+                   }
+               } catch {
+                   print("Hata: \(error.localizedDescription)")
+               }
+               
+           }
+    
+    
+    func drawProgressCircle(showWithView: UIView, goal:Int, today:Int) {
+        let scaleFactor: CGFloat = 0.8
+        let lineWidth: CGFloat = 20.0
+        let centerPoint = CGPoint(x: showWithView.bounds.width / 2, y: showWithView.bounds.height / 2)
+        let radius = (min(showWithView.bounds.width, showWithView.bounds.height) - lineWidth) / 2.3 * scaleFactor
         
-        let dayOfWeekFormatter = DateFormatter()
-        dayOfWeekFormatter.dateFormat = "EEEE"
-        let dayOfWeek = dayOfWeekFormatter.string(from: currentDate)
+        let totalProgress = CGFloat(goal)
+        let currentProgress = CGFloat(today)
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
+        let progressPath = UIBezierPath(arcCenter: centerPoint,
+                                        radius: radius,
+                                        startAngle: -CGFloat.pi / 2,
+                                        endAngle: 2 * CGFloat.pi * currentProgress / totalProgress - CGFloat.pi / 2,
+                                        clockwise: true)
         
-        let fetchRequest: NSFetchRequest<DataOfWeek> = DataOfWeek.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "dayOfWeek == %@", dayOfWeek)
+        showWithView.layer.sublayers?.filter { $0 is CAShapeLayer }.forEach { $0.removeFromSuperlayer() }
         
-        do {
-            let results = try context.fetch(fetchRequest)
-            if let existingRoutine = results.first {
-                let total = Int(existingRoutine.totalValue ?? "0")
-                allDailyZikir = total ?? 0
-            }
-        } catch {
-            print("Hata: \(error.localizedDescription)")
-        }
+        let progressLayer = CAShapeLayer()
+        progressLayer.path = progressPath.cgPath
+        progressLayer.strokeColor = UIColor(hex: "32ACE4").cgColor
+        progressLayer.fillColor = UIColor.clear.cgColor
+        progressLayer.lineWidth = lineWidth
+        progressLayer.lineCap = .round
         
+        showWithView.layer.addSublayer(progressLayer)
+    
+        progressLayer.frame = showWithView.bounds
+        progressLayer.bounds = showWithView.bounds
     }
     
     
-    
-}
+    func callPlaySound() {
+        guard let recommended = Int(zikirRecomended ?? "0") else { return }
+        if todayZikir == goalZikir || todayZikir == recommended || secondTodayZikir == goalZikir || secondTodayZikir == recommended || thirdTodayZikir == goalZikir || thirdTodayZikir == recommended  {
+            playVibration()
+        }
+    }
 
-
-
+    func playVibration() {
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.impactOccurred()
+    }
+           
+       }
+ 

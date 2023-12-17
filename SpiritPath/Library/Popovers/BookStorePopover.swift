@@ -18,17 +18,17 @@ extension BookStore {
         let popoverContentController = UIViewController()
         
         let contentView = UIView(frame: CGRect(x: 180, y: 100, width: 180, height: 300))
-        contentView.backgroundColor = .clear
-        
+        setupBackroundImageToVievController(imageNamed: "backround-5" , backroundView: contentView)
+       
         let AddBookButtonIcon = UIImage(systemName: "doc.fill.badge.plus")
         let userGuideButtonIcone = UIImage(systemName: "questionmark.app.fill")
-        let resetButtonIcone = UIImage(systemName: "trash")
+        let resetButtonIcone = UIImage(systemName: "trash.fill")
         
         
         let userGuideButton = UIButton(type: .system)
         userGuideButton.frame = CGRect(x: 10, y: 20, width: 40, height: 40)
         userGuideButton.backgroundColor = .clear
-        userGuideButton.tintColor = UIColor(hex: "2FA1D6")
+        userGuideButton.tintColor =  UIColor(hex: "201B4D")
         userGuideButton.setImage(userGuideButtonIcone, for: .normal)
         userGuideButton.addTarget(self, action: #selector(openUserGuide), for: .touchUpInside)
         dismiss(animated: true, completion: nil)
@@ -37,7 +37,7 @@ extension BookStore {
         let addBookButton = UIButton(type: .system)
         addBookButton.frame = CGRect(x: 10, y: 70, width: 40, height: 40)
         addBookButton.backgroundColor = .clear
-        addBookButton.tintColor = UIColor(hex: "2FA1D6")
+        addBookButton.tintColor =  UIColor(hex: "201B4D")
         addBookButton.setImage(AddBookButtonIcon, for: .normal)
         addBookButton.addTarget(self, action: #selector(startDocumentPicker), for: .touchUpInside)
         dismiss(animated: true, completion: nil)
@@ -83,12 +83,13 @@ extension BookStore {
         
        dismiss(animated: true, completion: nil)
 
-       popoverContent = UIViewController()
-       popoverContent?.modalPresentationStyle = .popover
-       popoverContent?.preferredContentSize = CGSize(width: 290, height: 550)
-       popoverContent?.view.backgroundColor = .clear
+      let popoverContent = UIViewController()
+       popoverContent.modalPresentationStyle = .popover
+       popoverContent.preferredContentSize = CGSize(width: 290, height: 550)
+       setupBackroundImageToVievController(imageNamed: "backround-5" , backroundView: popoverContent.view)
+     
 
-       if let popoverContent = popoverContent {
+      
            let popoverController = popoverContent.popoverPresentationController
            popoverController?.delegate = self
            popoverController?.permittedArrowDirections = []
@@ -97,14 +98,14 @@ extension BookStore {
            let addNewBookLabel = UILabel()
            addNewBookLabel.frame = CGRect(x: 25, y: 40, width: 250, height: 40)
            addNewBookLabel.backgroundColor = .clear
-           addNewBookLabel.textColor = .black
+           addNewBookLabel.textColor = UIColor(hex: "201B4D")
            addNewBookLabel.font = UIFont.systemFont(ofSize: 19)
            addNewBookLabel.text = "     Adding a new book:"
            popoverContent.view.addSubview(addNewBookLabel)
            
            let addBookTextView = UITextView()
            addBookTextView.frame = CGRect(x: 20, y: 80, width: 250, height: 140)
-           addBookTextView.textColor = .black
+           addBookTextView.textColor = UIColor(hex: "201B4D")
            addBookTextView.backgroundColor = .clear
            addBookTextView.font = UIFont.systemFont(ofSize: 15)
            addBookTextView.text = """
@@ -116,14 +117,14 @@ extension BookStore {
            let deleteBookLabel = UILabel()
            deleteBookLabel.frame = CGRect(x: 25, y: 230, width: 250, height: 40)
            deleteBookLabel.backgroundColor = .clear
-           deleteBookLabel.textColor = .black
+           deleteBookLabel.textColor = UIColor(hex: "201B4D")
            deleteBookLabel.font = UIFont.systemFont(ofSize: 19)
            deleteBookLabel.text = "     Removing a book:"
            popoverContent.view.addSubview(deleteBookLabel)
            
            let deleteBookTextView = UITextView()
            deleteBookTextView.frame = CGRect(x: 20, y: 275, width: 250, height: 235)
-           deleteBookTextView.textColor = .black
+           deleteBookTextView.textColor = UIColor(hex: "201B4D")
            deleteBookTextView.backgroundColor = .clear
            deleteBookTextView.font = UIFont.systemFont(ofSize: 15)
            deleteBookTextView.text = """
@@ -139,7 +140,7 @@ extension BookStore {
            popoverController?.sourceView = self.view
            popoverController?.sourceRect = CGRect(x: screenWidth - scaledWidth - rightMargin, y: topMargin, width: scaledWidth, height: 0)
            present(popoverContent, animated: true, completion: nil)
-       }
+       
    }
     
     @objc func showDeleteAlert (){

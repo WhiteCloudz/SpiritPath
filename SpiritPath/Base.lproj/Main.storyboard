@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,9 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" red="0.18677863480000001" green="0.63175117970000005" blue="0.84030610319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.031372549020000001" green="0.1058823529" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="selectedImageTintColor" red="0.18677863480000001" green="0.63175117970000005" blue="0.84030610319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.1256947219" green="0.10615409169999999" blue="0.30261421199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.1256947219" green="0.10615409169999999" blue="0.30261421199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.1256947219" green="0.10615409169999999" blue="0.30261421199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="RLe-V4-NDS" kind="relationship" relationship="viewControllers" id="mqs-5L-S4e"/>
@@ -42,13 +41,13 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NoF-1B-Mz2">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.18677863480000001" green="0.63175117970000005" blue="0.84030610319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.1256947219" green="0.10615409169999999" blue="0.30261421199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.18677863480000001" green="0.63175117970000005" blue="0.84030610319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" red="0.1256947219" green="0.10615409169999999" blue="0.30261421199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="nVF-VD-uxf" kind="relationship" relationship="rootViewController" id="rNa-QA-dV4"/>
+                        <segue destination="nVF-VD-uxf" kind="relationship" relationship="rootViewController" id="Qy8-nI-H4E"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GVh-Kc-9nv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -91,7 +90,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="9mA-Ro-ZlD">
                         <barButtonItem key="rightBarButtonItem" image="gearshape" catalog="system" style="plain" id="QvP-th-Knl">
-                            <color key="tintColor" red="0.1829197705" green="0.63175183530000001" blue="0.84030669930000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.1256947219" green="0.10615409169999999" blue="0.30261421199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="openSettingsAndTipPage:" destination="nVF-VD-uxf" id="VC5-CJ-GVw"/>
                             </connections>
@@ -165,12 +164,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xJH-X6-7sX">
-                        <barButtonItem key="rightBarButtonItem" image="plus.circle.fill" catalog="system" style="plain" id="jSR-Tj-gR0">
-                            <color key="tintColor" red="0.1829197705" green="0.63175183530000001" blue="0.84030669930000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="AddNewRoutine:" destination="lSa-ub-dgq" id="Uai-iw-0wn"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="plus.circle.fill" catalog="system" style="plain" id="jSR-Tj-gR0">
+                                <color key="tintColor" red="0.1256947219" green="0.10615409169999999" blue="0.30261421199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="AddNewRoutine:" destination="lSa-ub-dgq" id="Uai-iw-0wn"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="questionmark.app.fill" catalog="system" style="plain" id="M6v-bh-jgA">
+                                <color key="tintColor" red="0.1256947219" green="0.10615409169999999" blue="0.30261421199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="ToolDescription:" destination="lSa-ub-dgq" id="fYO-AS-524"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="backroundView" destination="ubN-Yl-ybP" id="en2-QK-McF"/>
@@ -210,7 +217,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="VWu-l3-eiq">
                         <barButtonItem key="rightBarButtonItem" image="line.3.horizontal.circle.fill" catalog="system" style="plain" id="98j-Hh-cRe">
-                            <color key="tintColor" red="0.1829197705" green="0.63175183530000001" blue="0.84030669930000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.1256947219" green="0.10615409169999999" blue="0.30261421199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="openPopover:" destination="JNb-pc-wwv" id="9bm-Lt-Ibb"/>
                             </connections>
@@ -258,7 +265,7 @@
                         <rightBarButtonItems>
                             <barButtonItem title="Item" style="plain" id="Z3V-YE-PeK">
                                 <imageReference key="image" image="line.3.horizontal.circle.fill" catalog="system" symbolScale="medium"/>
-                                <color key="tintColor" red="0.1829197705" green="0.63175183530000001" blue="0.84030669930000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.1256947219" green="0.10615409169999999" blue="0.30261421199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="openButtonsPopover:" destination="a5b-Hd-iU8" id="KG4-2W-MOh"/>
                                 </connections>
@@ -293,13 +300,13 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZpH-gH-AWj">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.31562250850000001" green="0.75337177519999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.1256947219" green="0.10615409169999999" blue="0.30261421199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.18677863480000001" green="0.63175117970000005" blue="0.84030610319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" red="0.1256947219" green="0.10615409169999999" blue="0.30261421199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="Uqd-Zq-LdA" kind="relationship" relationship="rootViewController" id="6HM-HK-T5Y"/>
+                        <segue destination="Uqd-Zq-LdA" kind="relationship" relationship="rootViewController" id="h7A-BL-EvH"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZJl-8O-9h7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -316,14 +323,14 @@
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Dew-Xo-5ZI">
                                 <rect key="frame" x="64.666666666666686" y="108" width="264" height="32"/>
-                                <color key="backgroundColor" red="0.1829022169" green="0.63174760340000002" blue="0.83637148139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.93301922079999999" green="0.66251635549999999" blue="0.69001442189999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <segments>
                                     <segment title="Counter"/>
                                     <segment title="Asma"/>
                                     <segment title="Recomended"/>
                                 </segments>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="selectedSegmentTintColor" red="0.31951060889999999" green="0.75337082150000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="selectedSegmentTintColor" red="0.9092885852" green="0.39532175660000002" blue="0.31988626720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ACS-uc-B70">
                                 <rect key="frame" x="0.0" y="159" width="393" height="610"/>
@@ -349,7 +356,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="fr2-HF-o2i">
                         <barButtonItem key="rightBarButtonItem" image="line.3.horizontal.circle.fill" catalog="system" style="plain" id="myx-YV-nGs">
-                            <color key="tintColor" red="0.1829197705" green="0.63175183530000001" blue="0.84030669930000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.1256947219" green="0.10615409169999999" blue="0.30261421199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="openButtonsPopover:" destination="Uqd-Zq-LdA" id="rBz-7d-5uc"/>
                             </connections>
@@ -381,17 +388,19 @@
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TAE-CO-4P4">
                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="374.66666666666669"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="J53-ni-Fub">
                                                 <rect key="frame" x="5" y="60" width="351" height="309.66666666666669"/>
-                                                <color key="textColor" systemColor="labelColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" red="0.12549019610000001" green="0.1058823529" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byr-Hg-Zhr">
                                                 <rect key="frame" x="8" y="5" width="345" height="50"/>
                                                 <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="20"/>
-                                                <color key="textColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="0.12549019610000001" green="0.1058823529" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMf-Cu-80V">
@@ -405,7 +414,7 @@
                                                 <rect key="frame" x="0.0" y="140" width="361" height="234.66666666666663"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="37"/>
-                                                <color key="textColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="0.12549019610000001" green="0.1058823529" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WB9-LU-Tw5">
@@ -418,7 +427,8 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.5691938996" green="0.80022585390000001" blue="0.91048794980000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="vqf-Gb-tZB" secondAttribute="trailing" id="0ba-iG-NJ8"/>
                                             <constraint firstAttribute="bottom" secondItem="pMf-Cu-80V" secondAttribute="bottom" id="9Uw-C3-WAX"/>
@@ -453,21 +463,24 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTW-OI-i2o">
                                                         <rect key="frame" x="0.0" y="0.0" width="361" height="92.666666666666671"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="17"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="12"/>
+                                                        <color key="textColor" red="0.10604161769999999" green="0.086494468150000003" blue="0.25153341890000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyn-yd-e8u">
                                                         <rect key="frame" x="0.0" y="92.666666666666686" width="361" height="92.666666666666686"/>
                                                         <color key="tintColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="25"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="15"/>
+                                                        <color key="textColor" red="0.1021246091" green="0.086489297450000002" blue="0.24760282040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vk2-la-S4e">
                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="374.33333333333331"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="73"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -482,10 +495,12 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="374.33333333333331"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <gestureRecognizers/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" red="0.12549019610000001" green="0.1058823529" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="gray">
                                                     <imageReference key="image" image="hand.tap" catalog="system" symbolScale="medium"/>
+                                                    <color key="baseForegroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="TappedButton:" destination="5S5-DZ-KgD" eventType="touchUpInside" id="Ukq-FQ-Yk0"/>
@@ -493,8 +508,8 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.159001261" green="0.54934984450000002" blue="0.73036235569999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="9Mu-Uq-YGa" secondAttribute="trailing" id="6uJ-e0-Z9d"/>
                                             <constraint firstItem="9Mu-Uq-YGa" firstAttribute="top" secondItem="9Ly-Wg-AHJ" secondAttribute="top" id="7zM-0H-Ws8"/>
@@ -514,6 +529,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="e3s-zB-F5L"/>
@@ -560,13 +576,13 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gXk-yV-gvj">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.18677863480000001" green="0.63175117970000005" blue="0.84030610319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.1256947219" green="0.10615409169999999" blue="0.30261421199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.18677863480000001" green="0.63175117970000005" blue="0.84030610319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" red="0.1256947219" green="0.10615409169999999" blue="0.30261421199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="JNb-pc-wwv" kind="relationship" relationship="rootViewController" id="Vv5-x9-bQO"/>
+                        <segue destination="JNb-pc-wwv" kind="relationship" relationship="rootViewController" id="7cM-QT-rbM"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tYh-P0-WNF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -583,8 +599,6 @@
         <image name="line.3.horizontal.circle.fill" catalog="system" width="128" height="123"/>
         <image name="plus.app" catalog="system" width="128" height="114"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="questionmark.app.fill" catalog="system" width="128" height="114"/>
     </resources>
 </document>

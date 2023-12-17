@@ -42,7 +42,6 @@ class BookStore: UIViewController, UIDocumentPickerDelegate, UIPopoverPresentati
         setCurrentAndTotalValue()
     }
     
-    
     func setupView(){
         setupTableView()
     }
@@ -59,12 +58,10 @@ class BookStore: UIViewController, UIDocumentPickerDelegate, UIPopoverPresentati
     
     func configurateDataSource(){
         let KuraniKerim = Library( bookImage: UIImage(named: "KuraniKerim"), bookTitle: "Quran Al-Kareem", currentAndTotal: "0 / 0" )
-        let cevsen = Library(bookImage: UIImage(named: "cevsen"), bookTitle: "Cevsen-ul Kebir", currentAndTotal: "0 / 0" )
         let SabahAksamDualari = Library(bookImage: UIImage(named: "SabahAksamDualari"), bookTitle: "Azkar al Sabah wal Masaa", currentAndTotal: "0 / 0" )
         
         dataSource.append(KuraniKerim)
         dataSource.append(SabahAksamDualari)
-        dataSource.append(cevsen)
        
         
         
@@ -100,7 +97,6 @@ class BookStore: UIViewController, UIDocumentPickerDelegate, UIPopoverPresentati
 
     
     
-
 extension BookStore: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         dataSource.count
@@ -126,7 +122,7 @@ extension BookStore: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        115
+        130
     }
     
     

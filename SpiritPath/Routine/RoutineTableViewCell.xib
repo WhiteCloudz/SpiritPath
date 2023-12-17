@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,42 +20,102 @@
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="IEJ-Hf-LBI">
                         <rect key="frame" x="15" y="7" width="290" height="45"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eTT-bM-0pg">
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ucH-oj-aOm">
                                 <rect key="frame" x="0.0" y="0.0" width="142.66666666666666" height="45"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tQ6-Gh-AXe">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pXK-j0-yJg">
                                         <rect key="frame" x="0.0" y="0.0" width="142.66666666666666" height="45"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvJ-1T-BO3">
-                                                <rect key="frame" x="0.0" y="0.0" width="24" height="45"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ECi-bh-Ksc">
+                                                <rect key="frame" x="0.0" y="0.0" width="142.66666666666666" height="45"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bwr-PI-Yhr">
+                                                        <rect key="frame" x="2" y="0.0" width="25.666666666666668" height="45"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="tintColor" red="0.74117647060000003" green="0.33725490200000002" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <action selector="LeftButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="KVj-BE-uoR"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwa-ir-DR2">
+                                                        <rect key="frame" x="30.666666666666657" y="0.0" width="112" height="45"/>
+                                                        <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="15"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="tintColor" red="0.74117647060000003" green="0.33725490200000002" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain"/>
-                                            </button>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="ywB-GG-bzq">
-                                                <rect key="frame" x="24.000000000000007" y="0.0" width="118.66666666666669" height="45"/>
-                                                <color key="textColor" red="0.01095775329" green="0.47926706079999998" blue="0.99799591300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
+                                                <constraints>
+                                                    <constraint firstItem="rwa-ir-DR2" firstAttribute="top" secondItem="ECi-bh-Ksc" secondAttribute="top" id="1qC-UV-f5u"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Bwr-PI-Yhr" secondAttribute="bottom" id="5dZ-dK-BtG"/>
+                                                    <constraint firstAttribute="trailing" secondItem="rwa-ir-DR2" secondAttribute="trailing" id="8rD-iP-mtD"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Bwr-PI-Yhr" secondAttribute="trailing" constant="115" id="BOA-Xx-ESB"/>
+                                                    <constraint firstItem="rwa-ir-DR2" firstAttribute="leading" secondItem="Bwr-PI-Yhr" secondAttribute="trailing" constant="3" id="HXf-4b-jew"/>
+                                                    <constraint firstItem="Bwr-PI-Yhr" firstAttribute="top" secondItem="ECi-bh-Ksc" secondAttribute="top" id="i3c-Ag-l4i"/>
+                                                    <constraint firstItem="Bwr-PI-Yhr" firstAttribute="leading" secondItem="ECi-bh-Ksc" secondAttribute="leading" constant="2" id="lyl-cn-xQ7"/>
+                                                    <constraint firstAttribute="bottom" secondItem="rwa-ir-DR2" secondAttribute="bottom" id="ylf-f0-yA6"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4bN-El-Mnq">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="uCf-cc-Pi1">
                                 <rect key="frame" x="147.66666666666663" y="0.0" width="142.33333333333337" height="45"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1r2-mB-Iru">
-                                        <rect key="frame" x="0.0" y="0.0" width="68.666666666666671" height="45"/>
-                                        <color key="textColor" red="0.01095775329" green="0.47926706079999998" blue="0.99799591300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8yc-9P-xsz">
-                                        <rect key="frame" x="73.666666666666686" y="0.0" width="68.666666666666686" height="45"/>
-                                        <color key="tintColor" red="0.99938577409999996" green="0.17801457640000001" blue="0.32826524969999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </pickerView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qbW-W1-2WC">
+                                        <rect key="frame" x="0.0" y="0.0" width="142.33333333333334" height="45"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5JV-cS-elS">
+                                                <rect key="frame" x="0.0" y="0.0" width="69" height="45"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" red="0.01095775329" green="0.47926706079999998" blue="0.99799591300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEI-3Q-gvw">
+                                                <rect key="frame" x="72" y="0.0" width="70.333333333333314" height="45"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nw5-fZ-H8Q">
+                                                <rect key="frame" x="72" y="0.0" width="70.333333333333314" height="45"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" red="0.99938577409999996" green="0.17801457640000001" blue="0.32826524969999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </pickerView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uch-3N-9Cq">
+                                                <rect key="frame" x="72" y="0.0" width="70.333333333333314" height="45"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="goToZikirController:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="T6V-V5-lJy"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="Uch-3N-9Cq" secondAttribute="bottom" id="91V-bO-xvK"/>
+                                            <constraint firstItem="HEI-3Q-gvw" firstAttribute="top" secondItem="qbW-W1-2WC" secondAttribute="top" id="JHL-cP-eI5"/>
+                                            <constraint firstAttribute="trailing" secondItem="Nw5-fZ-H8Q" secondAttribute="trailing" id="PTf-53-h0Z"/>
+                                            <constraint firstItem="Nw5-fZ-H8Q" firstAttribute="leading" secondItem="5JV-cS-elS" secondAttribute="trailing" constant="3" id="Qv7-k8-lFe"/>
+                                            <constraint firstAttribute="bottom" secondItem="HEI-3Q-gvw" secondAttribute="bottom" id="RU2-0a-cPC"/>
+                                            <constraint firstAttribute="bottom" secondItem="5JV-cS-elS" secondAttribute="bottom" id="ZN4-o8-v35"/>
+                                            <constraint firstAttribute="trailing" secondItem="5JV-cS-elS" secondAttribute="trailing" constant="73.329999999999998" id="drd-pJ-fgA"/>
+                                            <constraint firstItem="HEI-3Q-gvw" firstAttribute="leading" secondItem="5JV-cS-elS" secondAttribute="trailing" constant="3" id="fOu-i8-I6o"/>
+                                            <constraint firstItem="Uch-3N-9Cq" firstAttribute="leading" secondItem="5JV-cS-elS" secondAttribute="trailing" constant="3" id="jc2-sU-KKk"/>
+                                            <constraint firstItem="5JV-cS-elS" firstAttribute="top" secondItem="qbW-W1-2WC" secondAttribute="top" id="lBe-qW-sfd"/>
+                                            <constraint firstItem="5JV-cS-elS" firstAttribute="leading" secondItem="qbW-W1-2WC" secondAttribute="leading" id="lV6-db-fED"/>
+                                            <constraint firstAttribute="trailing" secondItem="Uch-3N-9Cq" secondAttribute="trailing" id="pF7-gL-Et9"/>
+                                            <constraint firstItem="Nw5-fZ-H8Q" firstAttribute="top" secondItem="qbW-W1-2WC" secondAttribute="top" id="qVT-4f-MSc"/>
+                                            <constraint firstItem="Uch-3N-9Cq" firstAttribute="top" secondItem="qbW-W1-2WC" secondAttribute="top" id="tWG-CJ-s3A"/>
+                                            <constraint firstAttribute="bottom" secondItem="Nw5-fZ-H8Q" secondAttribute="bottom" id="x1Z-Aj-R0B"/>
+                                            <constraint firstAttribute="trailing" secondItem="HEI-3Q-gvw" secondAttribute="trailing" id="x8m-eI-5Gg"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -71,10 +132,12 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
-                <outlet property="iconeButton" destination="vvJ-1T-BO3" id="Oqw-hr-UyA"/>
-                <outlet property="pickerView" destination="8yc-9P-xsz" id="u7T-2p-3vQ"/>
-                <outlet property="routineGoal" destination="1r2-mB-Iru" id="j7y-nN-7sU"/>
-                <outlet property="routineName" destination="ywB-GG-bzq" id="hCP-LG-s98"/>
+                <outlet property="goZikirButton" destination="Uch-3N-9Cq" id="Z6D-7T-3xw"/>
+                <outlet property="iconeButton" destination="Bwr-PI-Yhr" id="pCa-PC-Rxu"/>
+                <outlet property="pickerView" destination="Nw5-fZ-H8Q" id="FPm-6j-VJv"/>
+                <outlet property="routineGoal" destination="5JV-cS-elS" id="bfz-PO-cx4"/>
+                <outlet property="routineName" destination="rwa-ir-DR2" id="U3n-bV-xNG"/>
+                <outlet property="routineNow" destination="HEI-3Q-gvw" id="wSp-tS-SGh"/>
                 <outlet property="steckView" destination="IEJ-Hf-LBI" id="hwK-zu-VWK"/>
             </connections>
             <point key="canvasLocation" x="138.93129770992365" y="25"/>

@@ -23,7 +23,7 @@ class DailyZikirsChartTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         steckView.layer.cornerRadius = steckView.bounds.height / 10
-        steckView.backgroundColor = UIColor.red.withAlphaComponent(0.2)
+        steckView.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.1)
         
         contentView.addSubview(button)
         button.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true

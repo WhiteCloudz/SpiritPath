@@ -16,13 +16,12 @@ extension RoutinePage {
    @objc func openUserGuide(){
         
         dismiss(animated: true, completion: nil)
-        
-        popoverContent = UIViewController()
-        popoverContent?.modalPresentationStyle = .popover
-        popoverContent?.preferredContentSize = CGSize(width: 350, height: 650)
-        popoverContent?.view.backgroundColor = .clear
-        
-        if let popoverContent = popoverContent {
+       _ = UIScreen.main.bounds
+        let popoverContent = UIViewController()
+        popoverContent.modalPresentationStyle = .popover
+        popoverContent.preferredContentSize = CGSize(width: 350, height: 650)
+       setupBackroundImageToVievController(imageNamed: "backround-5" , backroundView: popoverContent.view)
+       
             let popoverController = popoverContent.popoverPresentationController
             popoverController?.delegate = self
             popoverController?.permittedArrowDirections = .any
@@ -31,22 +30,24 @@ extension RoutinePage {
             let addNewBookLabel = UILabel()
             addNewBookLabel.frame = CGRect(x: 25, y: 30, width: 350, height: 30)
             addNewBookLabel.backgroundColor = .clear
-            addNewBookLabel.textColor = .black
+            addNewBookLabel.textColor = UIColor(hex: "201B4D")
             addNewBookLabel.font = UIFont.systemFont(ofSize: 18)
+            addNewBookLabel.isUserInteractionEnabled = false
             addNewBookLabel.text = "Adding/Deleting a new 'Routine'"
             popoverContent.view.addSubview(addNewBookLabel)
             
             let addBookTextView = UITextView()
             addBookTextView.frame = CGRect(x: 20, y: 60, width: 330, height: 300)
-            addBookTextView.textColor = .black
+            addBookTextView.textColor = UIColor(hex: "201B4D")
             addBookTextView.backgroundColor = .clear
+            addBookTextView.isUserInteractionEnabled = false
             addBookTextView.font = UIFont.systemFont(ofSize: 13)
             addBookTextView.text = """
-           To create your routine, fill in the 'Routine Name' and 'Your Goal' fields. Then, at the bottom, use picker to select the category of your routine and click on the 'Add' button. Your added routine will appear on the screen.
+           To establish your routine, click on the '+' button located in the top left corner of the page. Then, fill in the fields for 'Routine Name' and 'Your Goal.' Next, use the selector at the bottom to choose the category of your routine and click the 'Add' button. Your added routine will appear on the screen.
 
-           If the category of your added routine is 'Zikir', a corresponding counter for this zikir will be automatically created on the 'Counter' page.
+           If the category of the routine you added is 'Zikir' a counter corresponding to this remembrance will be automatically created in the 'Counter' page.
 
-           Finally, if you want to delete a routine you've added, simply swipe the routine from right to left and tap on the 'Delete' button that appears. This action will permanently delete the routine along with all its data. Remember, when you delete a routine in the 'Zikir' category, it will also be removed from the 'Counter' page.
+           Finally, if you wish to delete an added routine, swipe it from right to left and tap the appearing 'Delete' button. This action will permanently erase the routine along with all its data. Remember, deleting a routine in the 'Remembrance' category will also remove it from the 'Counter' page.
            """
             popoverContent.view.addSubview(addBookTextView)
             
@@ -54,14 +55,16 @@ extension RoutinePage {
             let deleteBookLabel = UILabel()
             deleteBookLabel.frame = CGRect(x: 25, y: 360, width: 350, height: 30)
             deleteBookLabel.backgroundColor = .clear
-            deleteBookLabel.textColor = .black
+            deleteBookLabel.textColor = UIColor(hex: "201B4D")
+            deleteBookLabel.isUserInteractionEnabled = false
             deleteBookLabel.font = UIFont.systemFont(ofSize: 18)
             deleteBookLabel.text = "Updateing a routine"
             popoverContent.view.addSubview(deleteBookLabel)
             
             let deleteBookTextView = UITextView()
             deleteBookTextView.frame = CGRect(x: 20, y: 390, width: 330, height: 300)
-            deleteBookTextView.textColor = .black
+            deleteBookTextView.textColor = UIColor(hex: "201B4D")
+            deleteBookTextView.isUserInteractionEnabled = false
             deleteBookTextView.backgroundColor = .clear
             deleteBookTextView.font = UIFont.systemFont(ofSize: 13)
             deleteBookTextView.text = """
@@ -75,9 +78,9 @@ extension RoutinePage {
             
             
             popoverController?.sourceView = self.view
-            popoverController?.sourceRect = CGRect(x: 385, y: 100, width: 400, height: 700)
+            popoverController?.sourceRect = CGRect(x: 393, y: 80, width: 400, height: 700)
             present(popoverContent, animated: true, completion: nil)
-        }
+        
     }
         
         func adaptiveRoutinePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {

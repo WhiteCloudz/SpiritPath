@@ -190,7 +190,7 @@ class ReadBookPage: UIViewController, UIPopoverPresentationControllerDelegate{
                let pageNumber = Int(pageNumberString),
                pageNumber > 1,
                pageNumber <= self?.pdfDocument?.pageCount ?? 1 {
-                let page = self?.pdfDocument?.page(at: pageNumber )
+                let page = self?.pdfDocument?.page(at: pageNumber + 1 )
                 self?.pdfView.go(to: page!)
                 self?.updatePageNumberLabel()
             }
